@@ -1,2 +1,2 @@
-##REFLECTIONS FOLDER##
-You will add here the reflections for the course - in pdf format please
+# REFLECTIONS FOLDER
+The reflections  for the course will be here- in pdf format 
