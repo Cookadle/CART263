@@ -3,7 +3,7 @@
 //variables
 let counter = 0;
 let baseRadius = 50; //size of first circle
-let baseAlpha = 50; //transparency of first circle
+let baseAlpha = 50; 
 
 //square orange 
 let square = {
@@ -33,7 +33,7 @@ function setup() {
 }
 
 function draw() {
-    background(255);
+    background(175, 209, 148);
 
     //will draw the square
     displaySquare();
@@ -62,18 +62,20 @@ function draw() {
 
 
 
-        //for loop here jen
+        //for loop here jen //for (initialization; condition; increment) { bonus 3
+
 
 
         let i = 0;//track how many circles drawn //put for(let here)
         let currentRadius = baseRadius;
         let currentAlpha = baseAlpha;
+        // i do this cuz easier for me to track what im doing you could keep it simple by only keeping base radius 
 
         while (i < counter) { // (let i = 0; i < counter;i++) {
             drawCircle(width / 2, height / 2, currentRadius, currentAlpha);//middle circle elipse wtv
 
-            currentRadius += 25;// next circle bigger
-            currentAlpha += 20; // next circle less transparent
+            currentRadius += 25;
+            currentAlpha += 10; //modify length (from up to down of circle)
             i++;
 
 
@@ -108,7 +110,7 @@ function displayRedSquare() {
     if (checkCollisionWithRedSquare()) {
         fill(255, 100, 100, 200); // lighter red
     } else {
-        fill(redSquare.color);
+        fill(redSquare.color);//regular red
     }
     rect(redSquare.x, redSquare.y, redSquare.w, redSquare.h);
 }
@@ -130,14 +132,14 @@ function checkCollisionWithSquare() {
         return false;
     }
 }
-// Check mouse collision with square red same as above
+// Check mouse collision with square red 
 function checkCollisionWithRedSquare() {
-       //is mouse between left n right sides of the square
+      
     let insideX = mouseX > redSquare.x && mouseX < redSquare.x + redSquare.w;
-    
-    //is mouse between top n bottom of the square
+    //is mouse between left n right sides of the square
+ 
     let insideY = mouseY > redSquare.y && mouseY < redSquare.y + redSquare.h;
-    
+    //is mouse between top n bottom of the square
     if (insideX && insideY) {
         return true;
     }
@@ -148,9 +150,9 @@ function checkCollisionWithRedSquare() {
 }
 
 
-//draw a single circle a=alpha r=radius
+//draw a ellipse a=alpha r=radius
 function drawCircle(x, y, r, a) {
-    fill(255, a);
-    ellipse(x, y, r, r);
+    fill(255, 0);
+    ellipse(x, y, r, a);
 }
 
