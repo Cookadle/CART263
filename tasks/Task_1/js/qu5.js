@@ -72,7 +72,7 @@ function draw() {
         while (i < counter) { // (let i = 0; i < counter;i++) {
             drawCircle(width / 2, height / 2, currentRadius, currentAlpha);//middle circle elipse wtv
 
-            currentRadius += 15;// next circle bigger
+            currentRadius += 25;// next circle bigger
             currentAlpha += 20; // next circle less transparent
             i++;
 
