@@ -2,8 +2,8 @@
 
 //variables
 let counter = 0;
-let baseRadius = 50; //size of first circle
-let baseAlpha = 50; 
+let baseRadius = 50; //size of first circle at start
+let baseAlpha = 50; //transparent at start
 
 //square orange 
 let square = {
@@ -69,14 +69,13 @@ function draw() {
         let i = 0;//track how many circles drawn //put for(let here)
         let currentRadius = baseRadius;
         let currentAlpha = baseAlpha;
-        // i do this cuz easier for me to track what im doing you could keep it simple by only keeping base radius 
+        //do this cuz easier for me to track what im doing you could keep it simple by only keeping base radius 
 
-        while (i < counter) { // (let i = 0; i < counter;i++) {
+        while (i < counter) { //  for (let i = 0; i < counter;i++) {
             drawCircle(width / 2, height / 2, currentRadius, currentAlpha);//middle circle elipse wtv
 
             currentRadius += 25;
-            currentAlpha += 10; //modify length (from up to down of circle)
-            i++;
+            currentAlpha += 10;
 
 
         }
@@ -150,9 +149,9 @@ function checkCollisionWithRedSquare() {
 }
 
 
-//draw a ellipse a=alpha r=radius
+//draw a ellipse a=alpha/height, r is the diamete since ellipse uses width & height
 function drawCircle(x, y, r, a) {
     fill(255, 0);
-    ellipse(x, y, r, a);
+    ellipse(x, y, r, r);
 }
-
+//in case i forget why double rr ->// circle = ellipse with same width and height hence r, r.
