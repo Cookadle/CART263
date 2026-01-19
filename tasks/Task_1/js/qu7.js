@@ -1,6 +1,6 @@
 "use strict";
 let circleSize = 30 //multiple of 5
-let circleColor;//store random color
+let circleColor;//store color
 
 function setup() {
     createCanvas(600, 300);
@@ -26,4 +26,10 @@ function draw() {
 
         }
     }
+    function keyPressed() {
+        if (keyCode === 32) {
+            circleColor = color(random(255), random(255), random(255));
+        }
+    }
+
 }
