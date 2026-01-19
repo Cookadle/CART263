@@ -25,12 +25,12 @@ function draw() {
     //distance btwen circles( let y=start at 50,loop as long yx smaller canvas h/w,increase)
     for (let y = spacing; y < height; y += spacing) { //rows
         for (let x = spacing; x < width; x += spacing) { //columns
-            
+
             if (isCircle) {
                 ellipse(x, y, circleSize, circleSize);
             }
             else {
-           
+
                 rect(x, y, circleSize, circleSize);
             }
         }
