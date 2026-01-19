@@ -1,7 +1,7 @@
 "use strict";
 let circleSize = 30 //multiple of 5
 let circleColor;//store color
-let isCircle = true; // start w circle
+let isCircle = true; //start w circle
 
 
 function setup() {
