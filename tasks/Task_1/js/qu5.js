@@ -1,5 +1,5 @@
 "use strict";
-
+//just realized i didnt used while loops 
 //variables
 let counter = 0;
 let baseRadius = 50; //size of first circle at start
