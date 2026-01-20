@@ -1,5 +1,5 @@
 "use strict";
-//just realized i didnt used while loops 
+//just realized i didnt used while loops the way it was supposed to
 //variables
 let counter = 0;
 let baseRadius = 50; //size of first circle at start
@@ -70,7 +70,7 @@ function draw() {
         let currentRadius = baseRadius;
         let currentAlpha = baseAlpha;
         //do this cuz easier for me to track what im doing you could keep it simple by only keeping base radius 
-
+        //recheck this at home 
         while (i < counter) { //  for (let i = 0; i < counter;i++) {
             drawCircle(width / 2, height / 2, currentRadius, currentAlpha);//middle circle elipse wtv
 
