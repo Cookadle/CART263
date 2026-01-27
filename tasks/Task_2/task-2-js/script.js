@@ -8,7 +8,10 @@ console.log("we are a go!")
 /* 1: all paragraph elements */
 /***CODE */
 /***OUTPUT: 
- * 
+ * document.querySelectorAll("p");
+document.getElementsByTagName("p");
+console.log(document.querySelectorAll("p"));
+
  */
 
 
