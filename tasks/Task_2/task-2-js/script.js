@@ -173,8 +173,24 @@ function setup() {
     /* 1H: Iterate through the allPTagsThree array and call customCreateElement(), 
     passing the current allPTagsThree element as the parent with each iteration.*/
     /***CODE */
+    let allPTagsThree = document.querySelectorAll("p");
 
+    function customCreateElement(parent) {
 
+        //body
+        let newElement = document.createElement("p");
+        newElement.textContent = "New pharagraph";
+        newElement.style.backgroundColor = "green";
+        newElement.style.color = "white";
+        parent.appendCHild(newElement);
+    }
+
+    for (let pTag of allPTagsThree){
+        customCreateElement(pTag)
+    }
+
+    let p3html = document.createElement('img');
+    p3html.src
     /***EXPLANATION::
      * 
      * 
