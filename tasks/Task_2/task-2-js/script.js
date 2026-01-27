@@ -8,9 +8,9 @@ console.log("we are a go!")
 /* 1: all paragraph elements */
 /***CODE */
 /***OUTPUT: 
- * document.querySelectorAll("p");
+ *
+document.querySelectorAll("p");
 document.getElementsByTagName("p");
-console.log(document.querySelectorAll("p"));
 
  */
 
@@ -19,7 +19,7 @@ console.log(document.querySelectorAll("p"));
 /* 2: only the first paragraph element */
 /***CODE */
 /***OUTPUT: 
- * 
+console.log(document.querySelectorAll("p"));
  */
 
 
@@ -28,13 +28,26 @@ console.log(document.querySelectorAll("p"));
 /***CODE */
 /***OUTPUT: 
  * 
+document.querySelectorAll(".inner-container");
+document.getElementsByClassName("inner-container");
+ * 
  */
 
 
 /*************************************** */
 /* 4: the last image element inside the element that has the class img-container */
-/***CODE */
+/***CODE
+let imageContainer = document.querySelectorAll(".img-container");
+let lastImageContainer = imageContainer[imageContainer.length - 1];
+let lastImage = lastImageContainer.querySelector("img");
+
+console.log(imageContainer[imageContainer.length - 1].children[0].getAttribute("src"));
+*/
+ 
 /***OUTPUT: 
+
+
+
  * 
  */
 
@@ -45,7 +58,9 @@ console.log(document.querySelectorAll("p"));
 /* 5C: the text content of the first element in the list from 5A */
 /***CODE */
 /***OUTPUT: 
- * 
+For 5A: document.querySelectorAll("h2");
+For 5B: document.querySelectorAll("h2").length
+For 5C: document.querySelector("h2").textContent
  */
 
 
@@ -53,7 +68,7 @@ console.log(document.querySelectorAll("p"));
 /* 6: the element with id name parent */
 /***CODE */
 /***OUTPUT: 
- * 
+ document.querySelector("#parent");
  */
 
 /*************************************** */
