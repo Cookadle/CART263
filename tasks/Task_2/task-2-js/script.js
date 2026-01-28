@@ -6,48 +6,43 @@ function setup() {
     /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
     /*** START PART ONE ACCESS */
     /* 1: all paragraph elements */
-    /***CODE */
+    /***CODE */ console.log(document.getElementsByTagName("p"));
     /***OUTPUT: 
-     *
-    document.querySelectorAll("p");
-    document.getElementsByTagName("p");
-    
+     * HTMLCollection { 0: p#1, 1: p#2.img-descript, 2: p#3.img-descript, 3: p#4.img-descript, 4: p#5.img-descript, 
+     * 5: p#6.img-descript, 6: p#7.img-descript, 7: p#8.img-descript, 8: p#9.img-descript, … }
      */
 
 
     /*************************************** */
     /* 2: only the first paragraph element */
-    /***CODE */
-    /***OUTPUT: 
-    console.log(document.querySelectorAll("p"));
-     */
+    /***CODE */   console.log(document.querySelector("p"));
+    /***OUTPUT:
+     *  
+        <p id="1">   #text "\n Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias perspiciatis blanditiis, et\n laborum praesentium earum. Enim facere, quia commodi voluptate, quis asperiores, pariatur ducimus\n officiis non\n quasi officia sit veniam!\n   
+    */
 
 
     /*************************************** */
     /* 3: all elements with the class inner-container */
     /***CODE */
+    console.log(document.querySelectorAll(".inner-container"));
     /***OUTPUT: 
      * 
-    document.querySelectorAll(".inner-container");
-    document.getElementsByClassName("inner-container");
+    NodeList(8) [ div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container ]
+
      * 
      */
 
 
     /*************************************** */
     /* 4: the last image element inside the element that has the class img-container */
-    /***CODE
-    let imageContainer = document.querySelectorAll(".img-container");
-    let lastImageContainer = imageContainer[imageContainer.length - 1];
-    let lastImage = lastImageContainer.querySelector("img");
-    
-    console.log(imageContainer[imageContainer.length - 1].children[0].getAttribute("src"));
-    */
-
+    /***CODE*/ 
+    let images = document.querySelectorAll(".img-container");
+    let lastContainer = images[images.length -1]
+    let lastImage = lastContainer.querySelector("img")
+    console.log(lastImage)
     /***OUTPUT: 
-    
-    
-    
+    <img class="img-image" src="task-2-images/seventeen.png">
      * 
      */
 
@@ -57,18 +52,39 @@ function setup() {
     /* 5B: length of the list in 5A */
     /* 5C: the text content of the first element in the list from 5A */
     /***CODE */
-    /***OUTPUT: 
-    For 5A: document.querySelectorAll("h2");
-    For 5B: document.querySelectorAll("h2").length
-    For 5C: document.querySelector("h2").textContent
-     */
+    /*For 5A:*/ console.log(document.querySelectorAll("h2"));
+    /*For 5B:*/ console.log(document.querySelectorAll("h2").length);
+    /*For 5C:*/ console.log(document.querySelectorAll("h2")[0].textContent);
 
+    /***OUTPUT: 
+    a:
+    NodeList [ h2 ]
+    0:
+    <h2>
+    length: 1
+
+    b:
+    1
+
+    c: 
+    The header of this fancy page
+
+     */
 
     /*************************************** */
     /* 6: the element with id name parent */
-    /***CODE */
+    /***CODE */ console.log(document.getElementById("parent"));
     /***OUTPUT: 
-     document.querySelector("#parent");
+     * <section id="parent">
+     * children: HTMLCollection { 0: div.inner-container, 1: div.inner-container, length: 8, … }
+    ​0: <div class="inner-container">
+    ​1: <div class="inner-container">
+    ​2: <div class="inner-container">
+    3: <div class="inner-container">
+    4: <div class="inner-container">
+    5: <div class="inner-container">
+    6: <div class="inner-container">
+    ​7: <div class="inner-container">
      */
 
     /*************************************** */
@@ -89,8 +105,7 @@ function setup() {
     /*************************************** */
     /* 1: Select the first paragraph and replace the text within the paragraph... */
     /***CODE */
-    document.querySelector("p").textContent = "New Text in prgrph"
-
+    document.querySelector("p").textContent = "New Text in paragraph by Jeany"
 
     /*************************************** */
     /* 2: Select all elements in the HTML that have the class name content-container
@@ -182,10 +197,10 @@ function setup() {
         newElement.textContent = "New pharagraph";
         newElement.style.backgroundColor = "green";
         newElement.style.color = "white";
-        parent.appendCHild(newElement);
+        parent.appendChild(newElement);
     }
 
-    for (let pTag of allPTagsThree){
+    for (let pTag of allPTagsThree) {
         customCreateElement(pTag)
     }
 
