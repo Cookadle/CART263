@@ -21,7 +21,7 @@ function setup() {
     /***CODE */   console.log(document.querySelector("p"));
     /***OUTPUT:
      *  
-        <p id="1">   #text "\n Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias perspiciatis blanditiis, et\n laborum praesentium earum. Enim facere, quia commodi voluptate, quis asperiores, pariatur ducimus\n officiis non\n quasi officia sit veniam!\n   
+    <p id="1">   #text "\n Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias perspiciatis blanditiis, et\n laborum praesentium earum. Enim facere, quia commodi voluptate, quis asperiores, pariatur ducimus\n officiis non\n quasi officia sit veniam!\n   
     */
 
 
@@ -217,7 +217,7 @@ function setup() {
 
     let p3browser = document.createElement('img');
     p3browser.src = "task-2-images/part-three-newparagraphs-browser.png"
-    
+
     /***EXPLANATION::
      * 
      * 
