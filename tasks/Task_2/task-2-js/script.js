@@ -217,6 +217,7 @@ function setup() {
 
     let p3browser = document.createElement('img');
     p3browser.src = "task-2-images/part-three-newparagraphs-browser.png"
+    
     /***EXPLANATION::
      * 
      * 
