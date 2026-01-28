@@ -1,0 +1,2 @@
+# Class work folder
+A space where I will be keeping work and exercises done in class.For future references or understanding concepts again,helps my memory.Honestly you should not be in here so GO BACK.
