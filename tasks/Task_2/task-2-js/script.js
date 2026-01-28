@@ -73,7 +73,7 @@ function setup() {
 
     /*************************************** */
 
-    
+
     /* 6: the element with id name parent */
     /***CODE */ console.log(document.getElementById("parent"));
     /***OUTPUT: 
@@ -138,11 +138,10 @@ function setup() {
     /* 6: Select the fifth paragraph element on the page and add to the existing content 
     an img element that holds `one.png`, and add the class newStyle to said paragraph element.
     /***CODE */
-
-
     document.querySelectorAll("p")[4].innerHTML += "<img src ='task-2-images/one.png' class='newStyle> </img>"
+    /************************************** */
 
-    /*************************************** */
+
     /* 7: Add the following array variable: let colors = ['red','blue','green','orange'];, 
     then access all elements with class name inner-container and save to a variable called `innerContainers`. 
     Next, iterate over the colors array, and for each color: 
@@ -150,6 +149,13 @@ function setup() {
     (i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
     a background using that color.
     /***CODE */
+    let colors = ['red', 'blue', 'green', 'orange'];
+    let innerContainers = document.querySelectorAll(".inner-container");
+    console.log(colors.length)
+
+    for (let i = 0; colors.length > i; i++) {
+        innerContainers[i].style.backgroundColor = colors[i];
+    };
 
     /*************************************** */
     /*** END PART TWO MODIFY */
@@ -202,12 +208,15 @@ function setup() {
         parent.appendChild(newElement);
     }
 
-    for (let pTag of allPTagsThree) {
-        customCreateElement(pTag)
+    for (let i = 0;allPTagsThree.lenght > i;i++) {
+        customCreateElement(allPTagsThree[i])
     }
 
     let p3html = document.createElement('img');
-    p3html.src
+    p3html.src = "task-2-images/part-three-newparagraphs-html.png"
+
+    let p3browser = document.createElement('img');
+    p3browser.src = "task-2-images/part-three-newparagraphs-browser.png"
     /***EXPLANATION::
      * 
      * 
