@@ -5,6 +5,7 @@ function setup() {
     console.log("we are a go!")
     /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
     /*** START PART ONE ACCESS */
+
     /* 1: all paragraph elements */
     /***CODE */ console.log(document.getElementsByTagName("p"));
     /***OUTPUT: 
@@ -14,6 +15,8 @@ function setup() {
 
 
     /*************************************** */
+
+
     /* 2: only the first paragraph element */
     /***CODE */   console.log(document.querySelector("p"));
     /***OUTPUT:
@@ -29,22 +32,19 @@ function setup() {
     /***OUTPUT: 
      * 
     NodeList(8) [ div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container ]
-
-     * 
-     */
-
-
     /*************************************** */
+
+
     /* 4: the last image element inside the element that has the class img-container */
-    /***CODE*/ 
+    /***CODE*/
     let images = document.querySelectorAll(".img-container");
-    let lastContainer = images[images.length -1]
+    let lastContainer = images[images.length - 1]
     let lastImage = lastContainer.querySelector("img")
     console.log(lastImage)
     /***OUTPUT: 
     <img class="img-image" src="task-2-images/seventeen.png">
-     * 
-     */
+    
+    */
 
 
     /*************************************** */
@@ -72,19 +72,21 @@ function setup() {
      */
 
     /*************************************** */
+
+    
     /* 6: the element with id name parent */
     /***CODE */ console.log(document.getElementById("parent"));
     /***OUTPUT: 
      * <section id="parent">
      * children: HTMLCollection { 0: div.inner-container, 1: div.inner-container, length: 8, … }
-    ​0: <div class="inner-container">
-    ​1: <div class="inner-container">
-    ​2: <div class="inner-container">
+     0: <div class="inner-container">
+     1: <div class="inner-container">
+     2: <div class="inner-container">
     3: <div class="inner-container">
     4: <div class="inner-container">
     5: <div class="inner-container">
     6: <div class="inner-container">
-    ​7: <div class="inner-container">
+     7: <div class="inner-container">
      */
 
     /*************************************** */
