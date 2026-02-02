@@ -196,6 +196,7 @@ function setup() {
     /* 1H: Iterate through the allPTagsThree array and call customCreateElement(), 
     passing the current allPTagsThree element as the parent with each iteration.*/
     /***CODE */
+    //this was done in class hence thew lack of screen grab
     let allPTagsThree = document.querySelectorAll("p");
 
     function customCreateElement(parent) {
@@ -240,13 +241,28 @@ function setup() {
         Set the style (left and top) to the of this element to 
         the necessary x and y position (use the counter variables in the for nested for loop to 
         calculate the new positions.
-        
+
     /* 2G: BONUS I: Make every div in the resulting grid in an even numbered row have white background 
         and otherwise let it have a background of purple.</li>
     /* 2H: BONUS II: For every div in an even numbered row make it contain the text `EVEN`, 
         otherwise lat it have the content `ODD`.*/
 
     /***CODE */
+
+for (let i = 0; i < 10; i++) {
+
+    let top = i * 20 + "px";
+          for (let a = 0; a < 10; a++) {
+
+let box = customNewBoxCreate(document.querySelector("#new-grid"));
+            box.style.left = a * 20 + "px";
+            box.style.top = top;
+
+        };
+
+    }
+
+
  function customNewBoxCreate(parent){
     let firstDiv =document.createElement("div");
     firstDiv.classList.add("testDiv")
