@@ -229,6 +229,8 @@ function setup() {
     /* 2B: In the body of customNewBoxCreate create a new div element, that has the class testDiv. 
     /* 2C:Then append this new element to the parent variable within the function. 
     /* 2D:Finally, return</code> this new element */
+
+
     /* 2E:Create a nested for loop (for rows and columns) to iterate through 10 columns and 10 rows (just like the JS Review :)). 
         Call the customNewBoxCreate function, in order to generate a new div -> representing each cell in the grid. 
         Ensure that the parent element for each of these new divs is the element whose id is named `new-grid`*/
@@ -238,13 +240,21 @@ function setup() {
         Set the style (left and top) to the of this element to 
         the necessary x and y position (use the counter variables in the for nested for loop to 
         calculate the new positions.
+        
     /* 2G: BONUS I: Make every div in the resulting grid in an even numbered row have white background 
         and otherwise let it have a background of purple.</li>
     /* 2H: BONUS II: For every div in an even numbered row make it contain the text `EVEN`, 
         otherwise lat it have the content `ODD`.*/
 
     /***CODE */
+ function customNewBoxCreate(parent){
+    let firstDiv =document.createElement("div");
+    firstDiv.classList.add("testDiv")
+    parent.appendChild(firstDiv);
+    return(firstDiv)
 
+    //body
+}
 
     /***EXPLANATION::
      * 
