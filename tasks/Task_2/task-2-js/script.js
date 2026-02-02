@@ -273,7 +273,7 @@ let box = customNewBoxCreate(document.querySelector("#new-grid"));
 }
 
     /***EXPLANATION::
-     * 
+     * The code create a 10x10 grid in a loop that runs 10 times with rows and columm.so 10x10=100?10 rows of divs x 10 columns of div.therefore I get 100.I dont know if t did it correctly but scren grabs are title task 2.3.1/2.3.2
      * 
      */
 
