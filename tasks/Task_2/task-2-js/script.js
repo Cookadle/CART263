@@ -208,7 +208,7 @@ function setup() {
         parent.appendChild(newElement);
     }
 
-    for (let i = 0; allPTagsThree.lenght > i; i++) {
+  for (let i = 0; allPTagsThree.length > i; i++) {
         customCreateElement(allPTagsThree[i])
     }
 
