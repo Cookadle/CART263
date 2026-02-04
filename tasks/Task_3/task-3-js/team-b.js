@@ -6,8 +6,96 @@ function setup_B() {
   //get the buttons
   activateButtons(`#TEAM_B`, "ani_canvB",aniA,aniB,aniC,aniD);
 
-  function aniA(parentCanvas) {
+ function aniA(parentCanvas) {
     console.log("in ani-A -teamB");
+
+
+    // square grid
+    let index = 0
+    for (let r = 0; r < 2; r++) {
+      for (let e = 0; e < 2; e++) {
+        let parent = document.getElementById("ani_canvB_A");
+        let back = document.createElement("div");
+        back.classList.add("TEAM_B_backSquare" + index);
+        back.style.width = `187.5px`;
+        back.style.height = `187.5px`;
+        parent.appendChild(back);
+        index++
+        console.log(back.classList)
+        back.style.left = ((r + 1) * 187.5) - 187.5 + "px";
+        back.style.top = ((e + 1) * 187.5) - 187.5 + "px";
+      }
+    }
+
+    // nested for loop for circles grid
+    for (let i = 0; i < 14; i++) {
+      for (let j = 0; j < 14; j++) {
+        //create a grid cell with a div
+        let parent = document.getElementById("ani_canvB_A");
+        let d = document.createElement("div");
+        d.classList.add("TEAM_B_circle");
+        d.style.width = `20px`;
+        d.style.height = `20px`;
+        parent.appendChild(d);
+        console.log()
+
+        d.style.left = (i + 1) * 25 + "px";
+        d.style.top = (j + 1) * 25 + "px";
+      }
+    }
+
+    let canvas = document.querySelector("#ani_canvB_A")
+    canvas.addEventListener("click", changeDotColor)
+
+    function changeDotColor(event) {
+
+      let bounds = canvas.getBoundingClientRect();
+      console.log(bounds)
+
+      let mouseX = event.clientX - bounds.left
+      let mouseY = event.clientY - bounds.top
+
+
+      let color = "undefined";
+
+
+      console.log(mouseX, mouseY, (bounds.width / 2), (bounds.height / 2))
+
+      if (mouseX < (bounds.width / 2) && mouseY < (bounds.height / 2)) {
+        color = 0
+      }
+
+      else if (mouseX < (bounds.width / 2) && mouseY > (bounds.height / 2)) {
+        color = 1
+      }
+
+      else if (mouseX > (bounds.width / 2) && mouseY < (bounds.height / 2)) {
+        color = 2
+      }
+
+      else if (mouseX > (bounds.width / 2) && mouseY > (bounds.height / 2)) {
+        color = 3
+      }
+
+
+      for (let i = 0; i < 14; i++) {
+        for (let j = 0; j < 14; j++) {
+          //create a grid cell with a div
+          let parent = document.getElementById("ani_canvB_A");
+          let d = document.createElement("div");
+          d.classList.add("TEAM_B_circle" + color);
+          d.style.width = `20px`;
+          d.style.height = `20px`;
+          parent.appendChild(d);
+          console.log()
+
+          d.style.left = (i + 1) * 25 + "px";
+          d.style.top = (j + 1) * 25 + "px";
+        }
+      }
+
+
+    }
   }
 
 
