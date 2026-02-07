@@ -106,7 +106,7 @@ function setup_B() {
    * YOU CAN USE ALL NOTES --- and see my examples in team-h.js for inspiration and possibly help:).
    * 1: create a creatve, visual pattern using text, divs as shapes, images ... draw bunch of squares of differents sizes across the canvas
    * 2: add in mouseover event listener(s) somewhere to make the sketch interactive... change colour of squares when mouse is over (maybe all squares change colour randomly )
-   *
+   * or creat a trail of squares random color with the mouse using the mouse as a brush
    * NOTE::: PLEASE::: if you add any custom css PLEASE use the style.css and prefix any class names with your team label
    * i.e. you want to create a custom div class and you are in "Team_A" then call your class TEAM_A_ANI_A_Div -
    * this is so that your styles are not overriden by other teams.
