@@ -6,97 +6,97 @@ function setup_B() {
   //get the buttons
   activateButtons(`#TEAM_B`, "ani_canvB",aniA,aniB,aniC,aniD);
 
- function aniA(parentCanvas) {
-    console.log("in ani-A -teamB");
+//  function aniA(parentCanvas) {
+//     console.log("in ani-A -teamB");
 
 
-    // square grid
-    let index = 0
-    for (let r = 0; r < 2; r++) {
-      for (let e = 0; e < 2; e++) {
-        let parent = document.getElementById("ani_canvB_A");
-        let back = document.createElement("div");
-        back.classList.add("TEAM_B_backSquare" + index);
-        back.style.width = `187.5px`;
-        back.style.height = `187.5px`;
-        parent.appendChild(back);
-        index++
-        console.log(back.classList)
-        back.style.left = ((r + 1) * 187.5) - 187.5 + "px";
-        back.style.top = ((e + 1) * 187.5) - 187.5 + "px";
-      }
-    }
+//     // square grid
+//     let index = 0
+//     for (let r = 0; r < 2; r++) {
+//       for (let e = 0; e < 2; e++) {
+//         let parent = document.getElementById("ani_canvB_A");
+//         let back = document.createElement("div");
+//         back.classList.add("TEAM_B_backSquare" + index);
+//         back.style.width = `187.5px`;
+//         back.style.height = `187.5px`;
+//         parent.appendChild(back);
+//         index++
+//         console.log(back.classList)
+//         back.style.left = ((r + 1) * 187.5) - 187.5 + "px";
+//         back.style.top = ((e + 1) * 187.5) - 187.5 + "px";
+//       }
+//     }
 
-    // nested for loop for circles grid
-    for (let i = 0; i < 14; i++) {
-      for (let j = 0; j < 14; j++) {
-        //create a grid cell with a div
-        let parent = document.getElementById("ani_canvB_A");
-        let d = document.createElement("div");
-        d.classList.add("TEAM_B_circle");
-        d.style.width = `20px`;
-        d.style.height = `20px`;
-        parent.appendChild(d);
-        console.log()
+//     // nested for loop for circles grid
+//     for (let i = 0; i < 14; i++) {
+//       for (let j = 0; j < 14; j++) {
+//         //create a grid cell with a div
+//         let parent = document.getElementById("ani_canvB_A");
+//         let d = document.createElement("div");
+//         d.classList.add("TEAM_B_circle");
+//         d.style.width = `20px`;
+//         d.style.height = `20px`;
+//         parent.appendChild(d);
+//         console.log()
 
-        d.style.left = (i + 1) * 25 + "px";
-        d.style.top = (j + 1) * 25 + "px";
-      }
-    }
+//         d.style.left = (i + 1) * 25 + "px";
+//         d.style.top = (j + 1) * 25 + "px";
+//       }
+//     }
 
-    let canvas = document.querySelector("#ani_canvB_A")
-    canvas.addEventListener("click", changeDotColor)
+//     let canvas = document.querySelector("#ani_canvB_A")
+//     canvas.addEventListener("click", changeDotColor)
 
-    function changeDotColor(event) {
+//     function changeDotColor(event) {
 
-      let bounds = canvas.getBoundingClientRect();
-      console.log(bounds)
+//       let bounds = canvas.getBoundingClientRect();
+//       console.log(bounds)
 
-      let mouseX = event.clientX - bounds.left
-      let mouseY = event.clientY - bounds.top
-
-
-      let color = "undefined";
+//       let mouseX = event.clientX - bounds.left
+//       let mouseY = event.clientY - bounds.top
 
 
-      console.log(mouseX, mouseY, (bounds.width / 2), (bounds.height / 2))
-
-      if (mouseX < (bounds.width / 2) && mouseY < (bounds.height / 2)) {
-        color = 0
-      }
-
-      else if (mouseX < (bounds.width / 2) && mouseY > (bounds.height / 2)) {
-        color = 1
-      }
-
-      else if (mouseX > (bounds.width / 2) && mouseY < (bounds.height / 2)) {
-        color = 2
-      }
-
-      else if (mouseX > (bounds.width / 2) && mouseY > (bounds.height / 2)) {
-        color = 3
-      }
+//       let color = "undefined";
 
 
-      for (let i = 0; i < 14; i++) {
-        for (let j = 0; j < 14; j++) {
-          //create a grid cell with a div
-          let parent = document.getElementById("ani_canvB_A");
-          let d = document.createElement("div");
-          d.classList.add("TEAM_B_circle" + color);
-          d.style.width = `20px`;
-          d.style.height = `20px`;
-          parent.appendChild(d);
-          console.log()
+//       console.log(mouseX, mouseY, (bounds.width / 2), (bounds.height / 2))
 
-          d.style.left = (i + 1) * 25 + "px";
-          d.style.top = (j + 1) * 25 + "px";
-        }
-      }
+//       if (mouseX < (bounds.width / 2) && mouseY < (bounds.height / 2)) {
+//         color = 0
+//       }
+
+//       else if (mouseX < (bounds.width / 2) && mouseY > (bounds.height / 2)) {
+//         color = 1
+//       }
+
+//       else if (mouseX > (bounds.width / 2) && mouseY < (bounds.height / 2)) {
+//         color = 2
+//       }
+
+//       else if (mouseX > (bounds.width / 2) && mouseY > (bounds.height / 2)) {
+//         color = 3
+//       }
 
 
-    }
-  }
+//       for (let i = 0; i < 14; i++) {
+//         for (let j = 0; j < 14; j++) {
+//           //create a grid cell with a div
+//           let parent = document.getElementById("ani_canvB_A");
+//           let d = document.createElement("div");
+//           d.classList.add("TEAM_B_circle" + color);
+//           d.style.width = `20px`;
+//           d.style.height = `20px`;
+//           parent.appendChild(d);
+//           console.log()
+
+//           d.style.left = (i + 1) * 25 + "px";
+//           d.style.top = (j + 1) * 25 + "px";
+//         }
+//       }
+
+
+//     }
+//   }
 
 
   /****************ANI B ************************************ */
@@ -104,8 +104,8 @@ function setup_B() {
   /****************ANI B ************************************ */
   /**************** TASK *******************************************
    * YOU CAN USE ALL NOTES --- and see my examples in team-h.js for inspiration and possibly help:).
-   * 1: create a creatve, visual pattern using text, divs as shapes, images ... 
-   * 2: add in mouseover event listener(s) somewhere to make the sketch interactive
+   * 1: create a creatve, visual pattern using text, divs as shapes, images ... draw bunch of squares of differents sizes across the canvas
+   * 2: add in mouseover event listener(s) somewhere to make the sketch interactive... change colour of squares when mouse is over (maybe all squares change colour randomly )
    *
    * NOTE::: PLEASE::: if you add any custom css PLEASE use the style.css and prefix any class names with your team label
    * i.e. you want to create a custom div class and you are in "Team_A" then call your class TEAM_A_ANI_A_Div -
