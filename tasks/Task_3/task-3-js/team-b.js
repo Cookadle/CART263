@@ -121,7 +121,7 @@ function setup_B() {
 
     // Set canvas bg colour +position
     parentCanvas.style.backgroundColor = "rgb(177, 194, 231)";//bg background so you can see what we working with+squares
-    parentCanvas.style.position = "relative"; //to emile/dyna: maybe the circle issues with the first one was because we use absolute instead of relative?
+    parentCanvas.style.position = "relative";
 
     //random number ( this is what pick square size+random position+colour )
     function random(min, max) {
@@ -139,15 +139,15 @@ function setup_B() {
       square.style.height = size + "px";
 
       //random position inside the container aka the parent
-      const x = random(0, parentCanvas.clientWidth - size);//so no  overflow out canvas but could i remove for more chaoctic feel?
-      const y = random(0, parentCanvas.clientHeight - size);
+      const x = random(0, parentCanvas.clientWidth );//- size);//so no  overflow out canvas but could i remove for more chaoctic feel?//update:made it more chaoctic
+      const y = random(0, parentCanvas.clientHeight );//- size);
       square.style.left = x + "px";
       square.style.top = y + "px";
 
       parentCanvas.appendChild(square);
     }
 
-    //draw random squares using colour classes made from first exercise
+    //draw random squares using colourclasses generated from first exercise
     function drawRandomSquares(amount) {
       const colorClasses = [
         "TEAM_B_backSquare0",
