@@ -102,7 +102,7 @@ function setup_B() {
   /****************ANI B ************************************ */
   /** PUT ALL YOUR CODE FOR INTERACTIVE PATTERN B INSIDE HERE */
   /****************ANI B ************************************ */
-  //https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+  //https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D  maybe ?
   /**************** TASK *******************************************
    * YOU CAN USE ALL NOTES --- and see my examples in team-h.js for inspiration and possibly help:).
    * 1: create a creatve, visual pattern using text, divs as shapes, images ... draw bunch of squares of differents sizes across the canvas
@@ -119,17 +119,14 @@ function setup_B() {
   function aniB(parentCanvas) {
     console.log("in ani-B -teamB");
 
-    // Set canvas bag
-    parentCanvas.style.backgroundColor = "rgb(177, 194, 231)";
+    // Set canvas bg colour +position
+    parentCanvas.style.backgroundColor = "rgb(177, 194, 231)";//bg background so you can see what we working with+squares
     parentCanvas.style.position = "relative"; //to emile/dyna: maybe the circle issues with the first one was because we use absolute instead of relative?
 
     //random number ( this is what pick square size+random position+colour )
     function random(min, max) {
       return Math.random() * (max - min) + min;
     }
-
-
-
 
     //create a square div 
     function createSquare(colorClass) {
@@ -142,7 +139,7 @@ function setup_B() {
       square.style.height = size + "px";
 
       //random position inside the container aka the parent
-      const x = random(0, parentCanvas.clientWidth - size);//so no overflow out canvas but could remove for more chaoctic feel
+      const x = random(0, parentCanvas.clientWidth - size);//so no  overflow out canvas but could i remove for more chaoctic feel?
       const y = random(0, parentCanvas.clientHeight - size);
       square.style.left = x + "px";
       square.style.top = y + "px";
@@ -150,7 +147,7 @@ function setup_B() {
       parentCanvas.appendChild(square);
     }
 
-    //draw random squares using colour classes from first exercise
+    //draw random squares using colour classes made from first exercise
     function drawRandomSquares(amount) {
       const colorClasses = [
         "TEAM_B_backSquare0",
