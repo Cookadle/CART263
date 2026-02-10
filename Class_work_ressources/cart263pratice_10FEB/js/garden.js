@@ -1,4 +1,3 @@
-
 window.onload = function (){
 // Our garden
   let garden = {
@@ -42,8 +41,8 @@ window.onload = function (){
       sunDiv: document.createElement("div"),
     },
   };
-}
-  function createAndRenderTheGarden() {
+
+ function createAndRenderTheGarden() {
     /* note how we use dot notation....*/
     //sky
     garden.sky.skyDiv.classList.add("sky");
@@ -73,5 +72,19 @@ window.onload = function (){
         )`;
     document.getElementsByTagName("main")[0].appendChild(garden.grass.grassDiv);
   }
+
+
     /* render the sun, sky and grass*/
+
   createAndRenderTheGarden();
+}
+// // add numFlowers at one time
+//   for (let i = 0; i < garden.numFlowers; i++) {
+//           garden.flowers.push(createFlower());
+//     }
+   
+//      for (let i =0; i< garden.flowers.length; i++){
+//        renderFlower(garden.flowers[i]);
+//      }
+     
+//     }
