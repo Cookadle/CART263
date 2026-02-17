@@ -1,3 +1,4 @@
+
 window.onload = function (){
 // Our garden
   let garden = {
@@ -74,24 +75,22 @@ window.onload = function (){
   }
 
 
-    /* render the sun, sky and grass*/
-
   createAndRenderTheGarden();
   createDogs();
   createBirds();
   renderAnimals();
-  //call constructor
-// // add numFlowers at one time
-//   for (let i = 0; i < garden.numFlowers; i++) {
-//           garden.flowers.push(createFlower());
-//     }
-   
-//      for (let i =0; i< garden.flowers.length; i++){
-//        renderFlower(garden.flowers[i]);
-//      }
-     
-//     }
+
 }
+   // if the first dog is set to jump
+    if(garden.dogs[0].isjumping ===true){
+      console.log("jump")
+      garden.dogs[0].updateJump()
+
+     for(let k=0; i< garden.birds.length;k++){
+        //try to catch any bird
+        garden.dogs[0].catchBird(garden.birds[k])
+    }
+
 window.addEventListener("keydown,function"(e){
 
    if(e.code ==="Space"){
@@ -102,5 +101,5 @@ window.addEventListener("keydown,function"(e){
         garden.dogs[0].jump()    
       }
     
-    }
+   }
   })
