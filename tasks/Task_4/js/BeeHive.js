@@ -11,6 +11,11 @@ class BeeHive {
     this.rotation = 0; // actual hive rotation
     this.angle = 1; // x in sine function
     this.beeCounter = 0;
+    //STEP 6
+  // displayBeeCountingorwhatever () {
+  //const h3 = this.holeDiv.querySelector("h3");
+  //h3.textContent = this.beeCounteror whatever the picked;
+  //h3.style.color = "rgba(244, 195, 110, 1)";}//become visible after 1 bee gioes home
   }
 
   rotateHives() {
@@ -44,6 +49,9 @@ class BeeHive {
 
     this.holeDiv.classList.add("beehive__hole");
     this.beehiveDiv.appendChild(this.holeDiv);
+    //STEP 6
+    //this.beehiveDiv.addEventListener("click", () => {
+ // this.displayBeeCounting or whatever; //when hive click number of bee shows
 
     const grass = document.querySelector(".grass");
     const sky = document.querySelector(".sky");
