@@ -35,6 +35,7 @@ window.onload = function () {
 
   // beehives
   let beehives = [];
+  let bees = []; 
 
   function createAndRenderTheGarden() {
     /* note how we use dot notation....*/
@@ -55,7 +56,28 @@ window.onload = function () {
     beehives.push(new BeeHive(680, 80, 85, { r: 235, g: 184, b: 98 }));
     beehives.push(new BeeHive(100, 100, 130, { r: 244, g: 196, b: 110 }));
     beehives.forEach((hive) => hive.renderBeeHive());
+    beehives.forEach((hive) => {
 
+ //create five bees
+    for (let i = 0; i < 5; i++) {
+      let hive = beehives[i % beehives.length];
+
+      //different sizes
+      let width = Math.random() * 50 + 25;
+      let height = width;
+
+      //position
+      let startX = hive.x + hive.size / 4;
+      let startY = hive.y + hive.size / 2;
+
+      let bee = new Bee(startX, startY, width, height, hive);
+      bees.push(bee);
+      bee.renderBee();
+      bee.animateBee();
+
+    }
+
+});
 
 
     //create some flowers
