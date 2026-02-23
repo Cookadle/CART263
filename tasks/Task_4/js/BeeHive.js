@@ -1,94 +1,94 @@
 class Bee {
-    constructor(x, y, width, height, home) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.home = home;
-        this.isreturn = false;
-    }
+  constructor(x, y, width, height, home) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.home = home;
+    this.isreturn = false;
+  }
 
-    return() {
-        this.isreturn = true;
-    }
+  return() {
+    this.isreturn = true;
+  }
 
-    renderBee() {
-        this.beeElement = document.createElement('img');
-        this.beeElement.src = 'images/bee.svg';//had to change this cause team a has different file construction
-        this.beeElement.style.position = 'absolute';
-        this.beeElement.classList.add('bee');
-        this.beeElement.style.width = this.width + 'px';
-        this.beeElement.style.height = this.height + 'px';
+  renderBee() {
+    this.beeElement = document.createElement('img');
+    this.beeElement.src = 'images/bee.svg';//had to change this cause team a has different file construction
+    this.beeElement.style.position = 'absolute';
+    this.beeElement.classList.add('bee');
+    this.beeElement.style.width = this.width + 'px';
+    this.beeElement.style.height = this.height + 'px';
 
-        document.body.appendChild(this.beeElement);
-        return this.beeElement;
-    }
+    document.body.appendChild(this.beeElement);
+    return this.beeElement;
+  }
 
-    animateBee() {
-        let bee = this;
-        let direction = 1;
-        let speed = 5;
+  animateBee() {
+    let bee = this;
+    let direction = 1;
+    let speed = 5;
 
-        setTimeout(() => { // bees wander for 10 seconds before going back to the hive
-            bee.return();
-        }, 10000);
+    setTimeout(() => { // bees wander for 10 seconds before going back to the hive
+      bee.return();
+    }, 10000);
 
-        function moveBee() {
-            if (!bee.isreturn) {
+    function moveBee() {
+      if (!bee.isreturn) {
 
-                bee.x += speed * direction;
+        bee.x += speed * direction;
 
-                //bees wrap around when they go off screen
-                if (bee.x > window.innerWidth) {
-                    bee.x = -bee.width;
-                }
-                if (bee.x < -bee.width) {
-                    bee.x = window.innerWidth;
-                    direction = 1;
-                }
-            } else {
-                //calculate center of hive as target
-                let targetX = bee.home.x + (bee.home.size / 2) - (bee.width / 2);
-                let targetY = bee.home.y + (bee.home.height / 2) - (bee.height / 2);
-
-
-                // if the bees go past the nearest hive, the bees wrap around and goes to the nearest hive
-                let hasPassedHive = (direction === 1 && bee.x > targetX + 50) ||
-                    (direction === -1 && bee.x < targetX - 50);
-
-                if (hasPassedHive) {
-                    bee.x = (direction === 1) ? -bee.width : window.innerWidth;
-                }
-
-                // make sure bee moves at constant speed by claculating the distance
-                //to the target
-                let dx = targetX - bee.x;
-                let dy = targetY - bee.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
+        //bees wrap around when they go off screen
+        if (bee.x > window.innerWidth) {
+          bee.x = -bee.width;
+        }
+        if (bee.x < -bee.width) {
+          bee.x = window.innerWidth;
+          direction = 1;
+        }
+      } else {
+        //calculate center of hive as target
+        let targetX = bee.home.x + (bee.home.size / 2) - (bee.width / 2);
+        let targetY = bee.home.y + (bee.home.height / 2) - (bee.height / 2);
 
 
-                if (distance > 1) {
+        // if the bees go past the nearest hive, the bees wrap around and goes to the nearest hive
+        let hasPassedHive = (direction === 1 && bee.x > targetX + 50) ||
+          (direction === -1 && bee.x < targetX - 50);
 
-                    bee.x += (dx / distance) * speed;
-                    bee.y += (dy / distance) * speed;
-                }
-
-
-                if (distance < 5) {
-                    bee.beeElement.remove();
-                    bee.home.beeEntered();
-                    return;
-                }
-            }
-
-            bee.beeElement.style.left = bee.x + "px";
-            bee.beeElement.style.top = bee.y + "px";
-
-            requestAnimationFrame(moveBee);
+        if (hasPassedHive) {
+          bee.x = (direction === 1) ? -bee.width : window.innerWidth;
         }
 
-        moveBee();
+        // make sure bee moves at constant speed by claculating the distance
+        //to the target
+        let dx = targetX - bee.x;
+        let dy = targetY - bee.y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+
+
+        if (distance > 1) {
+
+          bee.x += (dx / distance) * speed;
+          bee.y += (dy / distance) * speed;
+        }
+
+
+        if (distance < 5) {
+          bee.beeElement.remove();
+          bee.home.beeEntered();
+          return;
+        }
+      }
+
+      bee.beeElement.style.left = bee.x + "px";
+      bee.beeElement.style.top = bee.y + "px";
+
+      requestAnimationFrame(moveBee);
     }
+
+    moveBee();
+  }
 }
 
 class BeeHive {
@@ -109,9 +109,9 @@ class BeeHive {
     this.beeCounter++; // increase number of bees inside
   }
   displayBeeCount() {//will display number of bee in
-    const h3 = this.holeDiv.querySelector("h3");//find h3 element inside the hole
+    const h3 = this.holeDiv.querySelector("h3");//find h3 element inside the hole of beehiveeeeee
     h3.textContent = this.beeCounter;//update text to match current bee count
-    h3.style.color = "rgba(244, 195, 110, 1)";/// make the text visible once you click on hive like emile said(alpha from 0 → 1 )
+    h3.style.color = "rgba(244, 195, 110, 1)";/// make the text visible once you click on hive like emile said(alpha from 0 → 1 to over css )
   }
 
   rotateHives() {
@@ -147,7 +147,7 @@ class BeeHive {
     this.beehiveDiv.appendChild(this.holeDiv);
     //STEP 6
     this.beehiveDiv.addEventListener("click", () => {
-      this.displayBeeCount(); // cll function that displays number
+      this.displayBeeCount(); //call function that displays number
     });
     const grass = document.querySelector(".grass");
     const sky = document.querySelector(".sky");

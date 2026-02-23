@@ -35,7 +35,7 @@ window.onload = function () {
 
   // beehives
   let beehives = [];
-  let bees = []; 
+  let bees = [];
 
   function createAndRenderTheGarden() {
     /* note how we use dot notation....*/
@@ -58,26 +58,26 @@ window.onload = function () {
     beehives.forEach((hive) => hive.renderBeeHive());
     beehives.forEach((hive) => {
 
- //create five bees
-    for (let i = 0; i < 5; i++) {
-      let hive = beehives[i % beehives.length];
+      //create five bees
+      for (let i = 0; i < 5; i++) {
+        let hive = beehives[i % beehives.length];
 
-      //different sizes
-      let width = Math.random() * 50 + 25;
-      let height = width;
+        //different sizes
+        let width = Math.random() * 50 + 25;
+        let height = width;
 
-      //position
-      let startX = hive.x + hive.size / 4;
-      let startY = hive.y + hive.size / 2;
+        //position
+        let startX = hive.x + hive.size / 4;
+        let startY = hive.y + hive.size / 2;
 
-      let bee = new Bee(startX, startY, width, height, hive);
-      bees.push(bee);
-      bee.renderBee();
-      bee.animateBee();
+        let bee = new Bee(startX, startY, width, height, hive);
+        bees.push(bee);
+        bee.renderBee();
+        bee.animateBee();
 
-    }
+      }
 
-});
+    });
 
 
     //create some flowers
@@ -144,60 +144,4 @@ window.onload = function () {
 * 6/ Add a click event to each beehive such that when clicked on -> you count the number of bees (SEE TEAM A for collab) "at home" 
 and visually display the result
 *
-*/
-
-/*** TEAM C AND D NEED TO COORDINATE
-
-/**TEAM C -- SQUIRRELS
-* 1/ Create a file to hold a Squirrel Class (i.e. Squirrel.js)
-* 2/ Create the Squirrel Class : a constructor which takes a position, size and color as parameters
-* 3/ Create a renderSquirrel() method -> which essentially creates a HTML element(s) - could be
-* an image element :) or an svg .... representing a Squirrel... (see Sun or Flower for inspiration)
-* 4/ Create an animateSquirrel() method in the Squirrel class - which will make a given Squirrel move around the garden - use the requestAnimationFrame() 
-* 5/ In garden.js add 5 new Squirrels to the garden (in an array) - 
-* all different sizes and colors and in different positions 
-* and then call the animateSquirrel() method on all the Squirrels
-* 6/ Implement a counter to keep track of how many nuts any given squirrel has picked up (SEE TEAM D for collab)
- 
- 
- 
-/**TEAM D -- NUTS
-* 1/ Create a file to hold a  Nut Class (i.e. Nut.js)
-* 2/ Create the Nut Class : a constructor which takes a position, size and color as parameters
-* 3/ Create a renderNut() method -> which essentially creates a HTML element(s) - could be
-* an image element :) or an svg .... representing a Nut... (see Sun or Flower for inspiration)
-* 4/ In garden.js add at least 10 new Nuts to the garden (in an array) - 
-* all different sizes and colors and in different positions 
-* 5/ Implement the functionality such that any nut can be picked up by a squirrel (SEE TEAM C for collab) - 
-* 6/ AND if it is picked up then make that nut "inactive" and add a new nut in the garden ... 
-* 
-*/
-
-
-/*** TEAM E AND F NEED TO COORDINATE
-
-/** TEAM E BIRDS
-* 1/ Create a  file to hold a  Bird Class (i.e. Bird.js)
-* 2/ Create the Bird Class : a constructor which takes a position, size and color as parameters
-* 3/ Create a Bird() method -> which essentially creates a HTML element(s) - could be
-* an image element :) or an svg .... representing a Bird... (see Sun or Flower for inspiration)
-* 4/ Create an animateBird() method in the Bird class - which will make a given Bird move around the sky - use the requestAnimationFrame() 
-* 5/ In garden.js add an empty array for the birds 
-* 6/ Use either the keyboard or mouse events to dynamically allow for users to add new birds to the garden - and have them be animated.
-* 7/ Ensure that birds take cover somewhere in the garden if the weather temp (SEE TEAM F for collab) is determined to be too cold/ too hot or if it is raining
-* 
-* 
-*/
-
-
-/**TEAM F -- Weather
-* 1/ Create a file to hold a Weather Class (i.e. Weather.js)
-* 2/ Create the Weather Class : a constructor which takes at LEAST 2 properties: weather "state" i.e. sunny, raining, cloudy as well as a variable to hold the current temp
-* 3/ Create a renderWeather() method -> which essentially will call one of a few custom methods to render the current weather:
-* 4/ If the weather is determined to be sunny then call the renderSunny() which will contain HTML element(s) - could be
-* images, svgs etc .... representing sunny weather, if the weather is determined to be rainy then one would call a renderRainy() etc ...
-* 5/ In garden.js instantiate a weather state + add the current temperature.
-* 6/ Implement the functionality such that at different time intervals the weather changes and or the temperature.
-* 7/ Ensure and Implement the functionality for the birds (collab with TEAM E) to be affected by the current weather and temperature.
-* 
 */
