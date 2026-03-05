@@ -8,3 +8,13 @@ fetch the clothing based on their categorie
 shoes accesories bootom and top maybe add hair 
 i dont know if i would be taking it as my pictures of my clothes or pictures i draw of my clothes or preset clothes that i would online
 movement would left right for arrow who will change the next item
+
+
+
+TO DO LOGIC PLAN/flow 
+The user input has to be updated in the dom and saved in storage 
+user types the task(add a space where user will add their task)
+click add/enter(registering the new task function)
+javascrip create task(register the new task as a new element created )
+task appear on screen
+(idealy saved to local storage so the task doesnt go away once you reload page)
