@@ -18,3 +18,8 @@ click add/enter(registering the new task function)
 javascrip create task(register the new task as a new element created )
 task appear on screen
 (idealy saved to local storage so the task doesnt go away once you reload page)
+
+
+CSS STYLING IDEAS
+https://wpdean.com/css-cards/
+https://uiverse.io/cards

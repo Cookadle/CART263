@@ -5,7 +5,9 @@ body {
     padding:0;
 }
 .todo-container{
- max-width: 400 px;
-margin: 60px auto;
-
+max-width: 400 px;/*not too wide card to move aroun later when you want customization*/ 
+margin: 60px auto; /*horizontal centered card*/
+background: #fff;
+padding: 20px;
+border-radius:8px;/*round corners*/
 }
