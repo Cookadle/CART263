@@ -60,6 +60,57 @@ function saveTasks() {//store n save them
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
 }
-function loadTasks (){//Get stored tasks from localstorage.
-    const saved = JSON.parse(localStorage.getItem("tasks"))  || [];//if nothing in storasge go to empty array
+
+
+
+
+function loadTasks() {//get stored tasks from localstorage.
+    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];//if nothing in storasge go to empty array so null
+
+    savedTasks.forEach(task => {//loop every task object in the array
+
+        const li = document.createElement("li");
+        //task class for CSS style 
+        li.className = "task";
+
+        //put task text inside the <li>st element hihi
+        li.textContent = task.text;
+
+
+        //check if task was marked as completed if yes add completed class so UI reflects stored state
+        if (task.completed) {
+            li.classList.add("completed");
+        }
+
+        //clicking the task make it go completed state as before
+        li.addEventListener("click", () => {
+
+            li.classList.toggle("completed");
+
+            //save updated state to local storage
+            saveTasks();
+        });
+        //create delete butto for task =text inside like before
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+
+        deleteBtn.addEventListener("click", (e) => {
+
+            //refer to previous stop propagation same concept
+            e.stopPropagation();
+
+            //remove task from DOM
+            li.remove();
+
+            //update local storage so deleted task disappears permanently
+            saveTasks();
+        });
+
+        li.appendChild(deleteBtn);
+
+        taskList.appendChild(li);
+
+    });
 }
+
+loadTasks(); 
