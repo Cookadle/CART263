@@ -4,7 +4,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .todo-container {
     background: #fff;
     margin: 60px auto;
@@ -12,26 +11,27 @@ body {
     border-radius: 8px;/*round corners*/
     max-width: 400 px;/*not too wide card to move aroun later when you want customization*/
 }
-
 .input-section {
     display: flex;
     gap: 10px;
 }
-
 #task-input {/*make the input box longer while keeping the add task button in place*/
     flex: 1;
     padding: 6px;
 }
-button {
-    padding: 8px 12px;
+button {/*stylize the add task button*/
+    padding: 6px 12px;
     cursor:pointer;
 }
-.task {
+.task {/*style the task items*/
     background: #eee;
     margin: 10px ;
     padding: 8px;
     display:flex;
     justify-content: space-between;
     border-radius: 4px;
-
+}
+.task.completed{/*the idea is to go is a list and fade the task*/
+    text-decoration: line-through;
+    opacity: 0.6;
 }

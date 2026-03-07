@@ -23,3 +23,62 @@ task appear on screen
 CSS STYLING IDEAS
 https://wpdean.com/css-cards/
 https://uiverse.io/cards
+
+COPIED FROM ARTICLE 
+Must-haves (non-negotiable)
+
+Deploy your project so it can be opened in one click. A live demo is often the first thing a reviewer checks.
+
+Write a README that explains what the project does and why it exists. Include setup steps, screenshots, and a short feature list. Make it responsive so the UI works on mobile and desktop. Hiring managers will test it on different screen sizes.
+Strong signals that make you stand out
+
+Add meaningful empty states that guide the user. For example: "No results. Try clearing filters" is better than a blank page.
+
+Handle errors like a product would. Show what went wrong, and give a clear way to retry or recover. Add accessibility basics: labels, keyboard navigation, and visible focus states. If you build modals, manage focus, and allow Escape to close.
+1) Smart To-Do App that feels like a real product
+
+A to-do list is common, but a smart one proves you can build real UX. This is a perfect foundation project for a front-end developer portfolio.
+What it demonstrates
+
+You’ll show clean DOM manipulation through list rendering and interactions. You’ll also prove you can manage state and keep UI updates consistent. It’s also a great place to show accessibility, because lists and controls are everywhere. Keyboard support and focus behavior can instantly level up the project.
+Build it in steps
+
+Start with a minimal add/complete/delete flow. Keep data in an array and re-render the list from that array.
+
+Then add filters like All / Active / Completed. Make the filter buttons reflect the current state (active styling + ARIA).
+
+Next, add inline editing with Save and Cancel. Use Enter to save and Escape to cancel for a polished experience.
+Feature checklist
+
+Persist tasks to localStorage so refresh doesn’t wipe progress. Hiring managers see persistence as a real sign.
+
+Add a clear empty state like "No tasks yet. Add your first one." That small touch makes the UI feel intentional.
+Stretch upgrades hiring managers notice
+
+Add an "Undo delete" toast that lasts a few seconds. This shows you can build product-like safety nets. Add drag-and-drop ordering (or up/down controls for accessibility). If you do drag-and-drop, also provide a keyboard-friendly alternative.
+Implementation tip
+
+Use event delegation on the list container instead of attaching listeners per item. That keeps your code faster and easier to maintain as the list grows.
+
+You’re not only building projects. You’re building evidence. Make it easy for a reviewer to see what you did and why it matters.
+Write a README that answers real questions
+
+Start with a short "What this app does" paragraph. Then list features, tech used, and how to run it locally. Add a "Key decisions" section with 3–5 bullet points. Mention state approach, performance choices, and accessibility considerations.
+Include a quick demo path
+
+Most reviewers won’t explore deeply unless guided. Add a "Try it in 30 seconds" section with steps like: search → filter → save → refresh.
+Show your thinking, not just the final UI
+
+Add a small roadmap: what you’d improve next with more time. This signals maturity and helps interviewers start deeper conversations.
+You’re not only building projects. You’re building evidence. Make it easy for a reviewer to see what you did and why it matters.
+Write a README that answers real questions
+
+Start with a short "What this app does" paragraph. Then list features, tech used, and how to run it locally. Add a "Key decisions" section with 3–5 bullet points. Mention state approach, performance choices, and accessibility considerations.
+Include a quick demo path
+
+Most reviewers won’t explore deeply unless guided. Add a "Try it in 30 seconds" section with steps like: search → filter → save → refresh.
+Show your thinking, not just the final UI
+
+Add a small roadmap: what you’d improve next with more time. This signals maturity and helps interviewers start deeper conversations.
+
+And after all this the idea is get it run as an applet for linux so either package the app or release it on github
