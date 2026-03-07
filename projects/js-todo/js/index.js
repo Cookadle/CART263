@@ -45,18 +45,21 @@ function addTask() {
 }
 
 //we want the task TO STAYYYYY when we refresh HELLLLO LOCALSTORAGEEEEE
-function saveTasks() {
+function saveTasks() {//store n save them
     const tasks = [];//array for tasks as objects
     document.querySelectorAll("#task-list .task").forEach(taskEl => {//find every task elemnts inside li
         tasks.push({//convert DOM task into JS object
-            text: taskEl.firstChild.textContent,   //get text of the task
+            text: taskEl.firstChild.textContent, //get text of the task
             completed: taskEl.classList.contains("completed")//check if the task has the completed class n returns true or false
 
 
         });
     });
 
-    //localStorage only store strings JSON.stringify converts array as string
+    //localstorage only store strings so using JSON.stringify converts array as string
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
+}
+function loadTasks (){//Get stored tasks from localstorage.
+    const saved = JSON.parse(localStorage.getItem("tasks"))  || [];//if nothing in storasge go to empty array
 }

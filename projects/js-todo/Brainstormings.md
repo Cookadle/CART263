@@ -9,7 +9,15 @@ shoes accesories bootom and top maybe add hair
 i dont know if i would be taking it as my pictures of my clothes or pictures i draw of my clothes or preset clothes that i would online
 movement would left right for arrow who will change the next item
 
+LEARNED:
+.forEach() is an array method that loops through every element.
 
+Example:
+const numbers = [1,2,3];
+
+numbers.forEach(num => {
+  console.log(num);
+});
 
 TO DO LOGIC PLAN/flow 
 The user input has to be updated in the dom and saved in storage 
