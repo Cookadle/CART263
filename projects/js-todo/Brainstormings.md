@@ -20,6 +20,12 @@ task appear on screen
 (idealy saved to local storage so the task doesnt go away once you reload page)
 
 
+CSS
+ADD A COMPLETED BOXES CHECK 
+REMOVE CROSS OUT DELETE FOR WHEN TASK IS COMPLETED 
+TASK LOOK
+
+
 CSS STYLING IDEAS
 https://wpdean.com/css-cards/
 https://uiverse.io/cards

@@ -31,7 +31,7 @@ button {/*stylize the add task button*/
     justify-content: space-between;
     border-radius: 4px;
 }
-.task.completed{/*the idea is to go is a list and fade the task*/
+.task.completed{/*a list and fade the task while crossing it out*/
     text-decoration: line-through;
     opacity: 0.6;
 }

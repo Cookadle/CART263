@@ -5,13 +5,14 @@ const taskList = document.getElementById("task-list");
 
 
 //Making the add task button WORK with event listener triggered by clicked the button AND pressing enter on ur keyboard(user experience ++)
- addTaskBtn.addEventListener("click", addTask);
+//ISSUE NUMBER ONE CSS > MY DELETE BUTTON GET CROSSED OUT WHEN COMPLETED
+addTaskBtn.addEventListener("click", addTask);
  taskInput.addEventListener("keypress",(e)=> {
     if (e.key === "Enter") addTask();
  });
   
 //CORE FEATURE STARTS HERE ADDING TASKS BABEY()
-//flow here.Get text,create list/task,listen for completion,delete button with a delete function,append button to li  
+//flow Get text,create list/task,listen for completion,delete button with a delete function,append button to li ST
 function addTask(){
 
    const taskText = taskInput.value.trim();// trim is to remove extra space in text +read text
