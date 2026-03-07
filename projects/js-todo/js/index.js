@@ -7,35 +7,56 @@ const taskList = document.getElementById("task-list");
 //Making the add task button WORK with event listener triggered by clicked the button AND pressing enter on ur keyboard(user experience ++)
 //ISSUE NUMBER ONE CSS > MY DELETE BUTTON GET CROSSED OUT WHEN COMPLETED
 addTaskBtn.addEventListener("click", addTask);
- taskInput.addEventListener("keypress",(e)=> {
+taskInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") addTask();
- });
-  
+});
+
 //CORE FEATURE STARTS HERE ADDING TASKS BABEY()
 //flow Get text,create list/task,listen for completion,delete button with a delete function,append button to li ST
-function addTask(){
+function addTask() {
 
-   const taskText = taskInput.value.trim();// trim is to remove extra space in text +read text
-   if (taskText === "") return;//prevent empty tasks
+    const taskText = taskInput.value.trim();// trim is to remove extra space in text +read text
+    if (taskText === "") return;//prevent empty tasks
 
-   const li= document.createElement("li")//creating the task list
-   li.className = "task";//for css styling
-   li.textContent = taskText; //
+    const li = document.createElement("li")//creating the task list
+    li.className = "task";//for css styling
+    li.textContent = taskText; //
 
-//calling an event listener here for that whe you click task its complete and click again will undo the completed state
-li.addEventListener("click",()=>{
-li.classList.toggle("completed");//toggle > switch to the completed style automaticlly on n off  (if you forget) 
-});
- //creating a delete button for the task
- const deleteBtn = document.createElement("button");
- deleteBtn.textContent = "Delete"
-   
-//button click for deleting task
- deleteBtn.addEventListener("click",(e) =>  {
-    e.stopPropagation(); //so that the click here only apply to delete and not task complete 
-    taskList.removeChild(li);//will remove task from list
-});
-li.appendChild(deleteBtn); //thats the delete button
-taskList.appendChild(li);//show the tasks in the ui
-taskInput.value = ""; //clears the input for a new task
+    //calling an event listener here for that whe you click task its complete and click again will undo the completed state
+    li.addEventListener("click", () => {
+        li.classList.toggle("completed");//toggle > switch to the completed style automaticlly on n off  (if you forget) 
+        saveTasks();
+    });
+    //creating a delete button for the task
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete"
+
+    //button click for deleting task
+    deleteBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); //so that the click here only apply to delete and not task complete 
+        taskList.removeChild(li);//will remove task from list
+        li.remove();
+        saveTasks();
+    });
+    li.appendChild(deleteBtn); //thats the delete button
+    taskList.appendChild(li);//show the tasks in the ui
+    taskInput.value = ""; //clears the input for a new task
+    saveTasks();
+}
+
+//we want the task TO STAYYYYY when we refresh HELLLLO LOCALSTORAGEEEEE
+function saveTasks() {
+    const tasks = [];//array for tasks as objects
+    document.querySelectorAll("#task-list .task").forEach(taskEl => {//find every task elemnts inside li
+        tasks.push({//convert DOM task into JS object
+            text: taskEl.firstChild.textContent,   //get text of the task
+            completed: taskEl.classList.contains("completed")//check if the task has the completed class n returns true or false
+
+
+        });
+    });
+
+    //localStorage only store strings JSON.stringify converts array as string
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
 }
