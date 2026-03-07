@@ -16,6 +16,15 @@ function addTask(){
 
 //calling an event listener here for that whe you click task its complete and click again will undo the completed state
 li.addEventListener("click",()=>{
-li.classList.toggle("completed");
-})
+li.classList.toggle("completed");//toggle > remove or adds class automaticlly  (if you forget) 
+});
+ //creating a delete button for the task
+ const deleteBtn = document.createElement("button");
+ deleteBtn.textContent = "Delete"
+
+
+
+
+
+
 }
