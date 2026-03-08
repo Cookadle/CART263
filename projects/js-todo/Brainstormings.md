@@ -8,7 +8,13 @@ fetch the clothing based on their categorie
 shoes accesories bootom and top maybe add hair 
 i dont know if i would be taking it as my pictures of my clothes or pictures i draw of my clothes or preset clothes that i would online
 movement would left right for arrow who will change the next item
-
+CREDITS:
+https://www.w3schools.com/Js/js_project_todo.asp
+https://www.geeksforgeeks.org/javascript/javascript-project-on-todo-list/
+https://primeinspire.com/blog/interactive-todo-list-in-vanilla-javascript
+https://codepen.io/completejavascript/pen/Ozzymz
+https://amd.codes/posts/simple-java-script-to-do-app-with-local-storage
+https://codepen.io/neerbasant/pen/WNBeyjr
 LEARNED:
 .forEach() is an array method that loops through every element.
 
@@ -26,6 +32,12 @@ click add/enter(registering the new task function)
 javascrip create task(register the new task as a new element created )
 task appear on screen
 (idealy saved to local storage so the task doesnt go away once you reload page)
+ADVANCED PART 2 
+categorize tasks
+edit existing ones
+delete unwanted tasks 
+functionalities like filtering
+Using  API to store tasks on a server, sync across devices,share tasks with others (school work)etc
 
 
 CSS
