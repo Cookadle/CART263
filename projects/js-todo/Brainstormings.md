@@ -26,17 +26,24 @@ numbers.forEach(num => {
 });
 
 TO DO LOGIC PLAN/flow 
+PART 1
 The user input has to be updated in the dom and saved in storage 
 user types the task(add a space where user will add their task)
 click add/enter(registering the new task function)
 javascrip create task(register the new task as a new element created )
 task appear on screen
 (idealy saved to local storage so the task doesnt go away once you reload page)
+DONE
+
 ADVANCED PART 2 
+css card styling
 categorize tasks
 edit existing ones
 delete unwanted tasks 
 functionalities like filtering
+
+refactore addTask and loadTasks into a single helper function >> createTaskElement(task)?ask sabine maybe 
+
 Using  API to store tasks on a server, sync across devices,share tasks with others (school work)etc
 
 
