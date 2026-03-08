@@ -14,7 +14,6 @@ let currentFilter = "all";
 
 //ADDING TASKS BABEY ( code inspired by >https://amd.codes/posts/simple-java-script-to-do-app-with-local-storage
 function addTask() {
-
     const taskText = input.value.trim();
     if (!taskText) return;//prevent empty tasks
 
@@ -34,23 +33,57 @@ function addTask() {
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-           li.remove();
-           saveTasks();
-            taskFilter();
-            //deletedTasks.push({
-            //text: taskText,
-            //completed: li.classList.contains("completed")//instead delete permanant ,saved for undo function stage 2
-        });
-    
+        li.remove();
+        saveTasks();
+        taskFilter();
+        //deletedTasks.push({
+        //text: taskText,
+        //completed: li.classList.contains("completed")//instead delete permanant ,saved for undo function stage 2
+    });
     //console.log(`Task removed: "${taskText}"`)
+    li.appendChild(deleteBtn);
+
+    //edit button----------------------------------helped by : https://github.com/LoafFiction
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+
+    editBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const originalText = li.textContent.replace("DeleteEdit", "").trim();//tasktext
+        const editInput = document.createElement("input");
+        editInput.type = "text";
+        editInput.value = originalText;
 
 
-li.appendChild(deleteBtn);
-todoList.appendChild(li);
+        //clear text + show new input edits
+        li.textContent = "";
+        li.appendChild(editInput);
+        li.appendChild(deleteBtn);
+        li.appendChild(editBtn);
+        editInput.focus();
 
-input.value = ""; //clears the input for a new task
+        //enter key save, escape key cancel edits
+        editInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                li.textContent = editInput.value.trim() || originalText;
+                li.appendChild(deleteBtn);
+                li.appendChild(editBtn);
+                saveTasks();
+            } else if (e.key === "Escape") {
+                li.textContent = originalText;
+                li.appendChild(deleteBtn);
+                li.appendChild(editBtn);
 
-saveTasks();
+            }
+        });
+    });
+    li.appendChild(editBtn);
+    todoList.appendChild(li);
+
+    input.value = ""; //clears input for task
+
+    saveTasks();
 }
 
 //HELLLLO LOCALSTORAGEEEEE
@@ -99,6 +132,43 @@ function loadTasks() {//reload the saved task list when page load
             taskFilter();
         });
 
+        //edit button----------------------------------co-helped by : https://github.com/LoafFiction
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "Edit";
+
+        editBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            const originalText = li.textContent.replace("DeleteEdit", "").trim();//tasktext
+            const editInput = document.createElement("input");
+            editInput.type = "text";
+            editInput.value = originalText;
+
+
+            //clear text + show new input edits
+            li.textContent = "";
+            li.appendChild(editInput);
+            li.appendChild(deleteBtn);
+            li.appendChild(editBtn);
+            editInput.focus();
+
+            //enter key save escape key cancel edits
+            editInput.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    li.textContent = editInput.value.trim() || originalText;
+                    li.appendChild(deleteBtn);
+                    li.appendChild(editBtn);
+                    saveTasks();
+                } else if (e.key === "Escape") {
+                    li.textContent = originalText;
+                    li.appendChild(deleteBtn);
+                    li.appendChild(editBtn);
+
+                }
+            });
+        });
+        li.appendChild(editBtn);
+
         li.appendChild(deleteBtn);
         todoList.appendChild(li);
 
@@ -126,7 +196,7 @@ function filterAll() {
     document.querySelectorAll("#task-list .task").forEach(task => {
         task.style.display = "flex";
     });
-     updateFiltersBtn();
+    updateFiltersBtn();
 }
 function filterActive() {
     currentFilter = "active";//filter state rn
@@ -138,9 +208,9 @@ function filterActive() {
         } else {
             task.style.display = "flex";
         }
-        
+
     });
-     updateFiltersBtn();
+    updateFiltersBtn();
 }
 function filterCompleted() {
     currentFilter = "completed";//filter state rn
@@ -156,20 +226,20 @@ function filterCompleted() {
     updateFiltersBtn();
 }
 function updateFiltersBtn() {//show which filter is on
-const filters = [showAll, showActive, showCompleted];
+    const filters = [showAll, showActive, showCompleted];
 
     //remove active state for buttons
     filters.forEach(btn => {
-        btn.classList.remove("active"); 
+        btn.classList.remove("active");
         btn.setAttribute("aria-pressed", "false");
     });
 
-    //add active cls to current filter+aria being visual clue
+    //add active cls to current filter/btn +aria being used visual clue
     if (currentFilter === "all") {
         showAll.classList.add("active");
         showAll.setAttribute("aria-pressed", "true");
 
-    } 
+    }
     else if (currentFilter === "active") {
         showActive.classList.add("active");
         showActive.setAttribute("aria-pressed", "true");
@@ -177,7 +247,7 @@ const filters = [showAll, showActive, showCompleted];
     else if (currentFilter === "completed") {
         showCompleted.classList.add("active");
         showCompleted.setAttribute("aria-pressed", "true");
-    } 
+    }
 }
 
 loadTasks();

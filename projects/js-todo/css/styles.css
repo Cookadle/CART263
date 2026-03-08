@@ -44,6 +44,8 @@ button.active {/*all,completed,active,etc buttons*/
     justify-content: space-between;
     border-radius: 4px;
 }
+             
+
 .task.completed {/*a list and fade the task text while crossing it out*/
     text-decoration: line-through;
     opacity: 0.6;

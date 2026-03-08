@@ -17,6 +17,7 @@ https://amd.codes/posts/simple-java-script-to-do-app-with-local-storage
 https://codepen.io/neerbasant/pen/WNBeyjr
 https://basescripts.com/building-an-advanced-to-do-list-with-drag-drop-task-deletion-completion-toggle-and-dark-mode
 https://blog.bytescrum.com/building-a-simple-to-do-app-with-javascript-local-storage-and-state-management
+https://eslfunonline.com/coding/projects/to-do-list.html
 LEARNED:
 .forEach() is an array method that loops through every element.
 
@@ -40,6 +41,7 @@ DONE
 PROJECT 1 ADVANCED PART 2 
 categorize tasks(completed,to do,deleted?)done
 edit existing ones(add edit task)
+add instructions
 
 CSS
 ADD A COMPLETED BOXES CHECK 
@@ -85,7 +87,7 @@ You’ll show clean DOM manipulation through list rendering and interactions. Yo
 
 Start with a minimal add/complete/delete flow. Keep data in an array and re-render the list from that array.✅
 
-Then add filters like All / Active / Completed.✅ Make the filter buttons reflect the current state (active styling + ARIA).
+Then add filters like All / Active / Completed. Make the filter buttons reflect the current state (active styling + ARIA).✅
 
 Next, add inline editing with Save and Cancel. Use Enter to save and Escape to cancel for a polished experience.
 
