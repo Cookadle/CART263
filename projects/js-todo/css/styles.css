@@ -1,3 +1,12 @@
+
+/*
+//ISSUE NUMBER ONE CSS > MY DELETE BUTTON GET CROSSED OUT WHEN COMPLETED
+//ISSUE NUMBER TWO CSS >When task is loooong we lose the delete button
+
+
+
+
+*/
 body {
     font-family: Arial, sans-serif;/*change this ugly writing*/
     background: #f5f5f5;
@@ -8,8 +17,8 @@ body {
     background: #fff;
     margin: 60px auto;
     padding: 20px;
-    border-radius: 8px;/*round corners*/
-    max-width: 400px;/*not too wide card to move aroun later when you want customization*/
+    border-radius: 8px;
+    max-width: 400px;
 }
 .input-section {
     display: flex;

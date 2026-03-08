@@ -1,11 +1,10 @@
-//referencing the elements by their id that i had set up in the html and store variables here
+//select DOM elements
 const taskInput = document.getElementById("task-input");
 const addTaskBtn = document.getElementById("add-task-btn");
 const taskList = document.getElementById("task-list");
 
 
 //Add task when button clicked n enter is pressed(user experience ++)
-//ISSUE NUMBER ONE CSS > MY DELETE BUTTON GET CROSSED OUT WHEN COMPLETED
 addTaskBtn.addEventListener("click", addTask);
 taskInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") addTask();
