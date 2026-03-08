@@ -22,6 +22,7 @@ body {
 button {/*stylize the add task button*/
     padding: 6px 12px;
     cursor:pointer;
+    display: inline-block;
 }
 .task {/*style the task items*/
     background: #eee;
@@ -31,14 +32,7 @@ button {/*stylize the add task button*/
     justify-content: space-between;
     border-radius: 4px;
 }
-.task.completed {
+.task.completed {/*a list and fade the task text while crossing it out*/
     text-decoration: line-through;
     opacity: 0.6;
-}
-.task.completed button {
-    text-decoration: none;
-    opacity: 1;
-}
-button {
-  display: inline-block;
 }
