@@ -40,9 +40,9 @@ DONE
 
 PROJECT 1 ADVANCED PART 2 
 categorize tasks(completed,to do,deleted?)done
-edit existing ones(add edit task)
-add instructions
+edit existing ones(add edit task) done
 
+add instructions
 CSS
 ADD A COMPLETED BOXES CHECK 
 REMOVE CROSS OUT applying on DELETE FOR WHEN TASK IS COMPLETED 

@@ -1,7 +1,6 @@
 
 /*
 //ISSUE NUMBER ONE CSS > MY DELETE BUTTON GET CROSSED OUT WHEN COMPLETED
-//ISSUE NUMBER TWO CSS >When task is loooong we lose the delete button, make text align down once reached border
 */
 body {
     font-family: Arial, sans-serif;/*change this ugly writing*/
@@ -16,7 +15,14 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(187, 255, 0, 0.199);
     width: 100%;
-    max-width: 400px;
+    max-width: 550px;
+    margin-top: 50px;
+}
+.todo-footer {/*button filters(all active) modified here */
+    display: flex;   
+    justify-content: center;
+    gap: 10px;       
+    margin-top: 20px;       
 }
 .input-section {
     display: flex;
@@ -27,26 +33,40 @@ body {
     padding: 6px;
 }
 button {/*stylize EVERY button*/
-    padding: 6px 10px;
+    padding: 5px 8px;
     cursor:pointer;
     display: inline-block;
+    font-size: 13px;
 }
 button.active {/*all,completed,active,etc buttons*/
     background-color: #1f311f; 
     color: white;
     border-radius: 4px;
 }
-.task {/*style the task items*/
+.task {
     background: #eee;
-    margin: 10px ;
+    margin: 10px;
     padding: 8px;
-    display:flex;
-    justify-content: space-between;
+    display: flex;
+    align-items: flex-start;
     border-radius: 4px;
+    gap: 4px;
 }
-             
-
-.task.completed {/*a list and fade the task text while crossing it out*/
+.task span {
+    flex: 1;
+    word-break: break-word; /*breaks long texts*/
+}
+.task button:first-of-type {/*put edit/delete on the corner*/ 
+    margin-left: auto;
+}
+/* Only cross out the task text, not buttons */
+.task.completed span {
     text-decoration: line-through;
+}
+
+.task.completed {
+ opacity: 0.6; /* optional, keeps whole task a bit faded */
+}
+.task.completed {/*fade it */
     opacity: 0.6;
 }

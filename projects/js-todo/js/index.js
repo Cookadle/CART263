@@ -19,7 +19,10 @@ function addTask() {
 
     const li = document.createElement("li")//creating the task list
     li.className = "task";
-    li.textContent = taskText;
+
+    const textSpan = document.createElement("span");
+    textSpan.textContent = taskText;
+    li.appendChild(textSpan);
 
     //mark/unmark task as completed
     li.addEventListener("click", () => {
@@ -50,7 +53,7 @@ function addTask() {
     editBtn.addEventListener("click", (e) => {
         e.stopPropagation();
 
-        const originalText = li.textContent.replace("DeleteEdit", "").trim();//tasktext
+        const originalText = textSpan.textContent;;//tasktext
         const editInput = document.createElement("input");
         editInput.type = "text";
         editInput.value = originalText;
@@ -59,25 +62,30 @@ function addTask() {
         //clear text + show new input edits
         li.textContent = "";
         li.appendChild(editInput);
-        li.appendChild(deleteBtn);
         li.appendChild(editBtn);
+        li.appendChild(deleteBtn);
         editInput.focus();
 
         //enter key save, escape key cancel edits
         editInput.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
                 li.textContent = editInput.value.trim() || originalText;
-                li.appendChild(deleteBtn);
                 li.appendChild(editBtn);
+                li.appendChild(deleteBtn);
+                
                 saveTasks();
             } else if (e.key === "Escape") {
-                li.textContent = originalText;
-                li.appendChild(deleteBtn);
+                textSpan.textContent = editInput.value.trim() || originalText;
+                li.innerHTML = "";
+                li.appendChild(textSpan);
                 li.appendChild(editBtn);
+                li.appendChild(deleteBtn);
+                
 
             }
         });
     });
+    li.appendChild(deleteBtn);
     li.appendChild(editBtn);
     todoList.appendChild(li);
 
@@ -109,7 +117,9 @@ function loadTasks() {//reload the saved task list when page load
     savedTasks.forEach(task => {///create task item
         const li = document.createElement("li");
         li.className = "task";
-        li.textContent = task.text;
+        const textSpan = document.createElement("span");
+        textSpan.textContent = task.text;
+        li.appendChild(textSpan);
 
         //restore completed state
         if (task.completed) {
@@ -139,7 +149,7 @@ function loadTasks() {//reload the saved task list when page load
         editBtn.addEventListener("click", (e) => {
             e.stopPropagation();
 
-            const originalText = li.textContent.replace("DeleteEdit", "").trim();//tasktext
+            const originalText = textSpan.textContent;//tasktext
             const editInput = document.createElement("input");
             editInput.type = "text";
             editInput.value = originalText;
@@ -155,20 +165,23 @@ function loadTasks() {//reload the saved task list when page load
             //enter key save escape key cancel edits
             editInput.addEventListener("keydown", (e) => {
                 if (e.key === "Enter") {
-                    li.textContent = editInput.value.trim() || originalText;
-                    li.appendChild(deleteBtn);
+                    textSpan.textContent = editInput.value.trim() || originalText;
+                    li.innerHTML = "";
+                    li.appendChild(textSpan);
                     li.appendChild(editBtn);
+                    li.appendChild(deleteBtn);
+                    
                     saveTasks();
                 } else if (e.key === "Escape") {
                     li.textContent = originalText;
-                    li.appendChild(deleteBtn);
                     li.appendChild(editBtn);
+                    li.appendChild(deleteBtn);
 
                 }
             });
         });
-        li.appendChild(editBtn);
 
+        li.appendChild(editBtn);
         li.appendChild(deleteBtn);
         todoList.appendChild(li);
 
@@ -190,6 +203,7 @@ function taskFilter() {
     }
 
 }
+
 function filterAll() {
     currentFilter = "all";//filter state rn
 
@@ -198,6 +212,7 @@ function filterAll() {
     });
     updateFiltersBtn();
 }
+
 function filterActive() {
     currentFilter = "active";//filter state rn
 
