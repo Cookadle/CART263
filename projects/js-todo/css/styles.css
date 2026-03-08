@@ -9,7 +9,7 @@ body {
     margin: 60px auto;
     padding: 20px;
     border-radius: 8px;/*round corners*/
-    max-width: 400 px;/*not too wide card to move aroun later when you want customization*/
+    max-width: 400px;/*not too wide card to move aroun later when you want customization*/
 }
 .input-section {
     display: flex;
@@ -31,7 +31,14 @@ button {/*stylize the add task button*/
     justify-content: space-between;
     border-radius: 4px;
 }
-.task.completed{/*a list and fade the task while crossing it out*/
+.task.completed {
     text-decoration: line-through;
     opacity: 0.6;
+}
+.task.completed button {
+    text-decoration: none;
+    opacity: 1;
+}
+button {
+  display: inline-block;
 }

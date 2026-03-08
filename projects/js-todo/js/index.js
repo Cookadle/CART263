@@ -22,14 +22,15 @@ function addTask() {
     li.className = "task";//for css styling
     li.textContent = taskText; //
 
+    //creating a delete button for the task
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete"
+
     //calling an event listener here for that whe you click task its complete and click again will undo the completed state
     li.addEventListener("click", () => {
         li.classList.toggle("completed");//toggle > switch to the completed style automaticlly on n off  (if you forget) 
         saveTasks();
     });
-    //creating a delete button for the task
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete"
 
     //button click for deleting task
     deleteBtn.addEventListener("click", (e) => {
@@ -38,22 +39,30 @@ function addTask() {
         li.remove();
         saveTasks();
     });
+//just attaching delete button to task and list
     li.appendChild(deleteBtn); //thats the delete button
     taskList.appendChild(li);//show the tasks in the ui
+
     taskInput.value = ""; //clears the input for a new task
+
     saveTasks();
 }
 
 //we want the task TO STAYYYYY when we refresh HELLLLO LOCALSTORAGEEEEE
 function saveTasks() {//store n save them
-    const tasks = [];//array for tasks as objects
+
+    const tasks = [];//array for tasks as objects  my storage container
+
     document.querySelectorAll("#task-list .task").forEach(taskEl => {//find every task elemnts inside li
+
         tasks.push({//convert DOM task into JS object
+
             text: taskEl.firstChild.textContent, //get text of the task
+
             completed: taskEl.classList.contains("completed")//check if the task has the completed class n returns true or false
 
-
         });
+
     });
 
     //localstorage only store strings so using JSON.stringify converts array as string
@@ -62,22 +71,24 @@ function saveTasks() {//store n save them
 }
 
 
-
-
-function loadTasks() {//get stored tasks from localstorage.
+function loadTasks() {//reload the task list when page load
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];//if nothing in storasge go to empty array so null
 
     savedTasks.forEach(task => {//loop every task object in the array
 
         const li = document.createElement("li");
+
         //task class for CSS style 
         li.className = "task";
 
         //put task text inside the <li>st element hihi
         li.textContent = task.text;
 
+        //create delete butto for task =text inside like before
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
 
-        //check if task was marked as completed if yes add completed class so UI reflects stored state
+        // restore task state / check if task was marked as completed if yes add completed class so UI reflects stored state
         if (task.completed) {
             li.classList.add("completed");
         }
@@ -90,9 +101,6 @@ function loadTasks() {//get stored tasks from localstorage.
             //save updated state to local storage
             saveTasks();
         });
-        //create delete butto for task =text inside like before
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Delete";
 
         deleteBtn.addEventListener("click", (e) => {
 
