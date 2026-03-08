@@ -2,15 +2,16 @@
 const input = document.getElementById("task-input");
 const addTaskBtn = document.getElementById("add-task-btn");
 const todoList = document.getElementById("task-list");
+const showAll = document.getElementById("show-all");
+const showActive = document.getElementById("show-active");
+const showCompleted = document.getElementById("show-completed");
+//const showDeleted = document.getElementById("show-deleted");
+
+//var
+let currentFilter = "all";
 
 
-//Add task when button clicked n enter is pressed(user experience ++)
-addTaskBtn.addEventListener("click", addTask);
-input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") addTask();
-});
-
-//ADDING TASKS BABEY ( code inspiration by >https://amd.codes/posts/simple-java-script-to-do-app-with-local-storage
+//ADDING TASKS BABEY ( code inspired by >https://amd.codes/posts/simple-java-script-to-do-app-with-local-storage
 function addTask() {
 
     const taskText = input.value.trim();
@@ -22,8 +23,9 @@ function addTask() {
 
     //mark/unmark task as completed
     li.addEventListener("click", () => {
-    li.classList.toggle("completed");
+        li.classList.toggle("completed");
         saveTasks();
+        taskFilter();
     });
 
     //delet task n button
@@ -31,17 +33,23 @@ function addTask() {
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        li.remove();
-        saveTasks();
+           li.remove();
+           saveTasks();
+            taskFilter();
+            //deletedTasks.push({
+            //text: taskText,
+            //completed: li.classList.contains("completed")//instead delete permanant ,saved for undo function stage 2
+        });
+    
     //console.log(`Task removed: "${taskText}"`)
-    });
 
-    li.appendChild(deleteBtn);
-    todoList.appendChild(li);
 
-    input.value = ""; //clears the input for a new task
+li.appendChild(deleteBtn);
+todoList.appendChild(li);
 
-    saveTasks();
+input.value = ""; //clears the input for a new task
+
+saveTasks();
 }
 
 //HELLLLO LOCALSTORAGEEEEE
@@ -53,18 +61,14 @@ function saveTasks() {
         tasks.push({
             text: taskEl.firstChild.textContent,
             completed: taskEl.classList.contains("completed")
-
         });
-
     });
-
     //save tasks in local storage
     localStorage.setItem("tasks", JSON.stringify(tasks));
     //console.log(`Saved ${tasks.length} tasks!`);
 
 }
 
-//code inspired by >https://amd.codes/posts/simple-java-script-to-do-app-with-local-storage
 function loadTasks() {//reload the saved task list when page load
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     //console.log(`Loaded ${savedTasks.length} tasks from storage`);
@@ -75,8 +79,8 @@ function loadTasks() {//reload the saved task list when page load
 
         //restore completed state
         if (task.completed) {
-        li.classList.add("completed");
-        
+            li.classList.add("completed");
+
         }
 
         //complete toggle
@@ -91,6 +95,7 @@ function loadTasks() {//reload the saved task list when page load
             e.stopPropagation();
             li.remove();
             saveTasks();
+            taskFilter();
         });
 
         li.appendChild(deleteBtn);
@@ -99,4 +104,63 @@ function loadTasks() {//reload the saved task list when page load
     });
 }
 
-loadTasks(); 
+function taskFilter() {
+
+    if (currentFilter === "all") {
+        filterAll();
+    }
+
+    if (currentFilter === "active") {
+        filterActive();
+    }
+
+    if (currentFilter === "completed") {
+        filterCompleted();
+    }
+
+}
+function filterAll() {
+    currentFilter = "all";//filter state rn
+
+    document.querySelectorAll("#task-list .task").forEach(task => {
+        task.style.display = "flex";
+    });
+}
+function filterActive() {
+    currentFilter = "active";//filter state rn
+
+    document.querySelectorAll("#task-list .task").forEach(task => {
+
+        if (task.classList.contains("completed")) {
+            task.style.display = "none";//hide if complete
+        } else {
+            task.style.display = "flex";
+        }
+
+    });
+}
+function filterCompleted() {
+    currentFilter = "completed";//filter state rn
+
+    document.querySelectorAll("#task-list .task").forEach(task => {
+
+        if (task.classList.contains("completed")) {
+            task.style.display = "flex";//show  if completed
+        } else {
+            task.style.display = "none";
+        }
+
+    });
+}
+loadTasks();
+
+//Add task when button clicked n enter is pressed(user experience ++)
+addTaskBtn.addEventListener("click", addTask);
+input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") addTask();
+});
+
+showAll.addEventListener("click", filterAll);
+showActive.addEventListener("click", filterActive);
+showCompleted.addEventListener("click", filterCompleted);
+//showDeleted.addEventListener("click", filterDeleted);

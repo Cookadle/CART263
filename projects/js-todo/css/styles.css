@@ -1,11 +1,7 @@
 
 /*
 //ISSUE NUMBER ONE CSS > MY DELETE BUTTON GET CROSSED OUT WHEN COMPLETED
-//ISSUE NUMBER TWO CSS >When task is loooong we lose the delete button
-
-
-
-
+//ISSUE NUMBER TWO CSS >When task is loooong we lose the delete button, make text align down once reached border
 */
 body {
     font-family: Arial, sans-serif;/*change this ugly writing*/
@@ -18,7 +14,7 @@ body {
     margin: 60px auto;
     padding: 20px;
     border-radius: 8px;
-     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(187, 255, 0, 0.199);
     width: 100%;
     max-width: 400px;
 }
@@ -30,8 +26,8 @@ body {
     flex: 1;
     padding: 6px;
 }
-button {/*stylize the add task button*/
-    padding: 6px 12px;
+button {/*stylize EVERY button*/
+    padding: 6px 10px;
     cursor:pointer;
     display: inline-block;
 }
@@ -47,4 +43,3 @@ button {/*stylize the add task button*/
     text-decoration: line-through;
     opacity: 0.6;
 }
-*/
