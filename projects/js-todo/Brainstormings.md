@@ -36,12 +36,12 @@ task appear on screen
 DONE
 
 ADVANCED PART 2 
-css card styling
 categorize tasks
 edit existing ones
 delete unwanted tasks 
+date/time 
 functionalities like filtering
-
+AND LAST css card styling cause its not as important
 refactore addTask and loadTasks into a single helper function >> createTaskElement(task)?ask sabine maybe 
 
 Using  API to store tasks on a server, sync across devices,share tasks with others (school work)etc
