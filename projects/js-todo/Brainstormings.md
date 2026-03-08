@@ -2,12 +2,12 @@ Linux based user like me often have to find alternatives for certains apps
 one thing i have been looking for my distro is a cute simple to do app but honestly i feeel like most lacking so lis to do woulds be cool,
 a calculator?
 quiz game?
-Dress up game
+(Dress up game SAVE FOR ANOTHER PROJECT)(
 Have a set avatar 
 fetch the clothing based on their categorie
 shoes accesories bootom and top maybe add hair 
 i dont know if i would be taking it as my pictures of my clothes or pictures i draw of my clothes or preset clothes that i would online
-movement would left right for arrow who will change the next item
+movement would left right for arrow who will change the next item)
 CREDITS:
 https://www.w3schools.com/Js/js_project_todo.asp
 https://www.geeksforgeeks.org/javascript/javascript-project-on-todo-list/
@@ -26,7 +26,7 @@ numbers.forEach(num => {
 });
 
 TO DO LOGIC PLAN/flow 
-PART 1
+PROJECT 1 PART 1
 The user input has to be updated in the dom and saved in storage 
 user types the task(add a space where user will add their task)
 click add/enter(registering the new task function)
@@ -35,17 +35,14 @@ task appear on screen
 (idealy saved to local storage so the task doesnt go away once you reload page)
 DONE
 
-ADVANCED PART 2 
-categorize tasks
-edit existing ones
-delete unwanted tasks 
-date/time 
-functionalities like filtering
+PROJECT 1 ADVANCED PART 2 
+categorize tasks(completed,to do,deleted?)
+edit existing ones(add edit task)
+date/time( for task description ex wash dishes by 13 march  and in the ui for the user )
+
+refactore addTask and loadTasks into a single helper function >> createTaskElement(task)?ask sabine maybe or partner/mommy
+
 AND LAST css card styling cause its not as important
-refactore addTask and loadTasks into a single helper function >> createTaskElement(task)?ask sabine maybe 
-
-Using  API to store tasks on a server, sync across devices,share tasks with others (school work)etc
-
 
 CSS
 ADD A COMPLETED BOXES CHECK 
@@ -56,6 +53,11 @@ TASK LOOK
 CSS STYLING IDEAS
 https://wpdean.com/css-cards/
 https://uiverse.io/cards
+
+
+PROJECT 2 PART 1
+Using  API to store tasks on a server, sync across devices,share tasks with others (school work)etc
+
 
 COPIED FROM ARTICLE 
 Must-haves (non-negotiable)
