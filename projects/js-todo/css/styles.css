@@ -31,6 +31,11 @@ button {/*stylize EVERY button*/
     cursor:pointer;
     display: inline-block;
 }
+button.active {/*all,completed,active,etc buttons*/
+    background-color: #1f311f; 
+    color: white;
+    border-radius: 4px;
+}
 .task {/*style the task items*/
     background: #eee;
     margin: 10px ;

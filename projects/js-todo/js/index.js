@@ -1,3 +1,4 @@
+
 //select DOM elements
 const input = document.getElementById("task-input");
 const addTaskBtn = document.getElementById("add-task-btn");
@@ -125,6 +126,7 @@ function filterAll() {
     document.querySelectorAll("#task-list .task").forEach(task => {
         task.style.display = "flex";
     });
+     updateFiltersBtn();
 }
 function filterActive() {
     currentFilter = "active";//filter state rn
@@ -136,8 +138,9 @@ function filterActive() {
         } else {
             task.style.display = "flex";
         }
-
+        
     });
+     updateFiltersBtn();
 }
 function filterCompleted() {
     currentFilter = "completed";//filter state rn
@@ -149,10 +152,36 @@ function filterCompleted() {
         } else {
             task.style.display = "none";
         }
-
     });
+    updateFiltersBtn();
 }
+function updateFiltersBtn() {//show which filter is on
+const filters = [showAll, showActive, showCompleted];
+
+    //remove active state for buttons
+    filters.forEach(btn => {
+        btn.classList.remove("active"); 
+        btn.setAttribute("aria-pressed", "false");
+    });
+
+    //add active cls to current filter+aria being visual clue
+    if (currentFilter === "all") {
+        showAll.classList.add("active");
+        showAll.setAttribute("aria-pressed", "true");
+
+    } 
+    else if (currentFilter === "active") {
+        showActive.classList.add("active");
+        showActive.setAttribute("aria-pressed", "true");
+    }
+    else if (currentFilter === "completed") {
+        showCompleted.classList.add("active");
+        showCompleted.setAttribute("aria-pressed", "true");
+    } 
+}
+
 loadTasks();
+updateFiltersBtn();
 
 //Add task when button clicked n enter is pressed(user experience ++)
 addTaskBtn.addEventListener("click", addTask);
