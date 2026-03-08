@@ -1,19 +1,19 @@
 //select DOM elements
-const taskInput = document.getElementById("task-input");
+const input = document.getElementById("task-input");
 const addTaskBtn = document.getElementById("add-task-btn");
-const taskList = document.getElementById("task-list");
+const todoList = document.getElementById("task-list");
 
 
 //Add task when button clicked n enter is pressed(user experience ++)
 addTaskBtn.addEventListener("click", addTask);
-taskInput.addEventListener("keydown", (e) => {
+input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") addTask();
 });
 
-//ADDING TASKS BABEY
+//ADDING TASKS BABEY ( code inspiration by >https://amd.codes/posts/simple-java-script-to-do-app-with-local-storage
 function addTask() {
 
-    const taskText = taskInput.value.trim();
+    const taskText = input.value.trim();
     if (!taskText) return;//prevent empty tasks
 
     const li = document.createElement("li")//creating the task list
@@ -22,7 +22,7 @@ function addTask() {
 
     //mark/unmark task as completed
     li.addEventListener("click", () => {
-        li.classList.toggle("completed");
+    li.classList.toggle("completed");
         saveTasks();
     });
 
@@ -33,12 +33,13 @@ function addTask() {
         e.stopPropagation();
         li.remove();
         saveTasks();
+    //console.log(`Task removed: "${taskText}"`)
     });
 
     li.appendChild(deleteBtn);
-    taskList.appendChild(li);
+    todoList.appendChild(li);
 
-    taskInput.value = ""; //clears the input for a new task
+    input.value = ""; //clears the input for a new task
 
     saveTasks();
 }
@@ -59,13 +60,14 @@ function saveTasks() {
 
     //save tasks in local storage
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    //console.log(`Saved ${tasks.length} tasks!`);
 
 }
 
-
+//code inspired by >https://amd.codes/posts/simple-java-script-to-do-app-with-local-storage
 function loadTasks() {//reload the saved task list when page load
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
+    //console.log(`Loaded ${savedTasks.length} tasks from storage`);
     savedTasks.forEach(task => {///create task item
         const li = document.createElement("li");
         li.className = "task";
@@ -73,7 +75,8 @@ function loadTasks() {//reload the saved task list when page load
 
         //restore completed state
         if (task.completed) {
-            li.classList.add("completed");
+        li.classList.add("completed");
+        
         }
 
         //complete toggle
@@ -91,7 +94,7 @@ function loadTasks() {//reload the saved task list when page load
         });
 
         li.appendChild(deleteBtn);
-        taskList.appendChild(li);
+        todoList.appendChild(li);
 
     });
 }
