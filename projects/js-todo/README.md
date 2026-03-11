@@ -3,6 +3,10 @@
 ----
 *This is a project where I get to use the knowlegde learned in 263 so far*   
 
+
+
+*Add picture*
+
 What can you do?
 
 Add your task<br>
