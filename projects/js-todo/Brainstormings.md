@@ -61,10 +61,39 @@ https://uiverse.io/cards
 
 
 PROJECT 2 PART 1 ideas
+GAMIFY THE TO DO
 Using  API to store tasks on a server, sync across devices,share tasks with others example send a email when deadline approach(school work)etc
+NODE JS? for backend.managing data and files?
+Phaser 3 
+game configuration task like
+-interacting with your task visually
+-draggable task
+-animation for complete task/delete task/
+added task
+could be adding a star
+Reward
+animation system 
+when you check off task get a star or point on the corner app
+confetti popping up 
+
 date/time( for task description ex wash dishes by 13 march and in the ui for the user )
 add undo AND deleted 
 shorten your code goo see sabine idk lmao its too long compared to online sources when i try to use my own logic ( comparing my todo vs primeinspire.com todo render)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 COPIED FROM ARTICLE 
@@ -117,3 +146,5 @@ Add a small roadmap: what you’d improve next with more time. This signals matu
 You’re not only building projects. You’re building evidence. Make it easy for a reviewer to see what you did and why it matters.
 
 And after all this the idea is get it run as an applet for linux so either package the app or release it on github
+
+
