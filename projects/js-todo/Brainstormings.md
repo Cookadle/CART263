@@ -2,12 +2,16 @@ Linux based user like me often have to find alternatives for certains apps
 one thing i have been looking for my distro is a cute simple to do app but honestly i feeel like most lacking so lis to do woulds be cool,
 a calculator?
 quiz game?
+
 (Dress up game SAVE FOR ANOTHER PROJECT)(
 Have a set avatar 
 fetch the clothing based on their categorie
 shoes accesories bootom and top maybe add hair 
 i dont know if i would be taking it as my pictures of my clothes or pictures i draw of my clothes or preset clothes that i would online
 movement would left right for arrow who will change the next item)
+
+
+
 CREDITS to any web if i used their code for adaption or inspiration:
 https://www.w3schools.com/Js/js_project_todo.asp
 https://www.geeksforgeeks.org/javascript/javascript-project-on-todo-list/
@@ -18,6 +22,9 @@ https://codepen.io/neerbasant/pen/WNBeyjr
 https://basescripts.com/building-an-advanced-to-do-list-with-drag-drop-task-deletion-completion-toggle-and-dark-mode
 https://blog.bytescrum.com/building-a-simple-to-do-app-with-javascript-local-storage-and-state-management
 https://eslfunonline.com/coding/projects/to-do-list.html
+
+
+
 LEARNED:
 .forEach() is an array method that loops through every element.
 
