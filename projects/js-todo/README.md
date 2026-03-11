@@ -1,16 +1,16 @@
-# H1 Interactive To Do List with JavaScript
+# Interactive To Do List with JavaScript
 
 ----
-# H3 This is a project where I get to use the knowlegde learned in 263 so far
+# This is a project where I get to use the knowlegde learned in 263 so far
  
 What can you do?
 
 Add your task
-Keep track of what was done in the completed tab<br>  
+Keep track of what was done in the completed tab<br>
 Filter your task based on their status<br>
 Local storage implemented (so that you don't lose your precious task if you reload)<br>
 
-Controls:
+Controls:  
 Click on a task to mark it complete<br>
 Click  again to undo the completation state<br>
 Add your task with Enter key<br>
