@@ -1,8 +1,7 @@
 # Interactive To Do List with JavaScript
 
 ----
-# This is a project where I get to use the knowlegde learned in 263 so far
- 
+*This is a project where I get to use the knowlegde learned in 263 so far* 
 What can you do?
 
 Add your task
