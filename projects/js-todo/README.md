@@ -1,10 +1,11 @@
 # Interactive To Do List with JavaScript
 
 ----
-*This is a project where I get to use the knowlegde learned in 263 so far* 
+*This is a project where I get to use the knowlegde learned in 263 so far*   
+
 What can you do?
 
-Add your task
+Add your task<br>
 Keep track of what was done in the completed tab<br>
 Filter your task based on their status<br>
 Local storage implemented (so that you don't lose your precious task if you reload)<br>
@@ -18,36 +19,36 @@ All buttons are functional<br>
 
 
 
-Road map for future:
+Road map for the future:
 ---
 
 **FUNCTIONS**
 
-Gamifying your tasks 
-Undo/Delete feature(Deleted a task by accident?Don't worry it was saved!)
-Date/Time based tasks
-Filter task by importance/date
-Improved controls for undoing the completation state.
-++Archive for task and deletes 30 days(user choice)
-Instructions
-CSS for a modern look(modify edit/delete with icon instead of words,)
+Gamifying your tasks <br>
+Undo/Delete feature(Deleted a task by accident?Don't worry it was saved!)<br>
+Date/Time based tasks<br>
+Filter task by importance/date<br>
+Improved controls for undoing the completation state.<br>
+++Archive for task and deletes 30 days(user choice)<br>
+Instructions on screen<br>
+CSS for a modern look(modify edit/delete with icon instead of words) <br>
 
 
 **PHASER LIBRARY PLAN**
 
-Animated tasks for delete(fade away) ,completed (conffeti pooping up)
-Reward system for task completed (to keep track of how many task you done even if delete)
+Animated tasks for delete(fade away) ,completed (conffeti pooping up)<br>
+Reward system for task completed (to keep track of how many task you done even if delete)<br>
 
-++ = Complex ideas that might not be implemented
+*++ = Complex ideas that might not be implemented*
 
 ---
 
-*Curious about my code?*
+*Curious about my code?*<br>
 I have linked all the sources I used to program this in brainstorm (except Sabine CAR263 website)
-Feel free to check it out and get inspired!  
+Feel free to check it out and get inspired!  <br>
 
-*Curious about the CSS?*
-My sources for css is linked as well!
+*Curious about the CSS?*<br>
+My sources for css is linked as well!<br>
 
-Learned:
+Learned:<br>
 .forEach()
