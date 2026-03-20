@@ -24,6 +24,8 @@ function go_all_stuff() {
         .catch(function (err) {//....handle error...
             console.log("had an error getting the microphone", err)
         });
+
+        
     /* for loading the video */
     let videoEl = document.getElementById("video-birds");
     window.addEventListener("click", function () {
