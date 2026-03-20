@@ -38,7 +38,6 @@ class RectangularObj {
 
       let r = Math.min(255, this.micVolume * 3);
       this.fill_color = `rgb(${r}, 50, 50)`; // class p ;redder fill when volume goes up and reduced green/blue values
-
     }
      
 
