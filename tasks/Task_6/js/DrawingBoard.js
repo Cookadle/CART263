@@ -4,6 +4,10 @@ class DrawingBoard {
     this.canvas = canvas;
     this.context = context;
     this.objectsOnCanvas = [];
+    // class p: we store microphone input
+    this.micVolume = 0; 
+    
+    this.micVolume = volume; //class p; then we go to rectangle js
     let self = this;
     this.drawingBoardId = drawingBoardId;
     //each element has a mouse clicked and a mouse over

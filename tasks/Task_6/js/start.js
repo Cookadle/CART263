@@ -71,6 +71,16 @@ function go_all_stuff() {
     window.requestAnimationFrame(animationLoop);
 
     function animationLoop() {
+        if (analyser) {
+            analyser.getByteFrequencyData(dataArray);// class pres: get data for sound 
+            let volume = dataArray.reduce((a, b) => a + b) / dataArray.length;//class p:conver our multiple values into one
+            // class p;send volume to board B
+            drawingBoardB.setMicInput(volume);
+        }//class p:bring them to drawing board js
+
+
+
+
         /*** CALL THE EACH CANVAS TO ANIMATE INSIDE  */
         drawingBoardA.animate();
         drawingBoardB.animate();
