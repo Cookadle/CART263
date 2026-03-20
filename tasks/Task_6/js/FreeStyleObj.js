@@ -22,6 +22,7 @@ class FreeStyleObj {
     this.context.beginPath();
     this.context.moveTo(this.x, this.y)
 for (let i = 0; i < this.context.canvas.width; i++) {
+   let x = i + this.x;
     let y = this.y + Math.sin(this.theta + (i + this.x) * 0.05) * this.yOffset;
 
     if (i === 0) {
@@ -31,7 +32,7 @@ for (let i = 0; i < this.context.canvas.width; i++) {
     }
 }
     this.context.stroke(); //set the stroke
-    this.theta += this.angularSpeed;
+  
   }
   //class p t3; same as rectangular.js
   update(volume) {
