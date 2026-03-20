@@ -5,9 +5,7 @@ class DrawingBoard {
     this.context = context;
     this.objectsOnCanvas = [];
     // class p: we store microphone input
-    this.micVolume = 0; 
-    
-    this.micVolume = volume; //class p; then we go to rectangle js
+    this.micVolume = 0;  //class p; then we go to rectangle js
     let self = this;
     this.drawingBoardId = drawingBoardId;
     //each element has a mouse clicked and a mouse over
@@ -68,6 +66,9 @@ class DrawingBoard {
   addObj(objToAdd) {
     this.objectsOnCanvas.push(objToAdd);
   }
+  setMicInput(volume) {
+  this.micVolume = volume;
+}
 
   /* method to add display objects on canvas */
   display() {
@@ -78,9 +79,11 @@ class DrawingBoard {
 
   /* method to add animate objects on canvas */
   animate() {
-    for (let i = 0; i < this.objectsOnCanvas.length; i++) {
+
      this.context.clearRect(0,0,this.canvas.width,this.canvas.height)
-     this.objectsOnCanvas[i].update();
+
+    for (let i = 0; i < this.objectsOnCanvas.length; i++) {
+     this.objectsOnCanvas[i].update(this.micVolume); //get volume
      this.objectsOnCanvas[i].display();
     }
   }

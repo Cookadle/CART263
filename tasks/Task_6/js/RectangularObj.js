@@ -30,11 +30,11 @@ class RectangularObj {
     if (volume !== undefined) {
       this.micVolume = volume;
       //class p; then size will change cuz mic
-      this.width = 50 + this.micVolume * 0.4;   // width grow volume increases
-      this.height = 70 + this.micVolume * 0.4;  // height grow volume increases
+      this.width = 40 + this.micVolume * 0.4;   // width grow volume increases
+      this.height = 60 + this.micVolume * 0.4;  // height grow volume increases
 
-      let r = Math.min(255, this.micVolume * 2);
-      this.fill_color = `rgb(${r}, 100, 200)`; // class p ;redder fill when volume goes
+      let r = Math.min(255, this.micVolume * 3);
+      this.fill_color = `rgb(${r}, 50, 50)`; // class p ;redder fill when volume goes up and reduced green/blue values
 
       //class p; move horizontally and bounce off canvas 
       this.x += this.speed;
