@@ -4,6 +4,7 @@ class DrawingBoard {
     this.canvas = canvas;
     this.context = context;
     this.objectsOnCanvas = [];
+
     // class p: we store microphone input
     this.micVolume = 0;  //class p; then we go to rectangle js
     let self = this;
@@ -26,18 +27,18 @@ class DrawingBoard {
     console.log(this.mouseOffsetX, this.mouseOffsetY);
     //differentiate which canvas
     //you can remove the console.logs /// 
-    if(this.drawingBoardId ==="partA"){
-      console.log("in A")
-    }
-    if(this.drawingBoardId ==="partB"){
-      console.log("in B")
-    }
-    if(this.drawingBoardId ==="partC"){
-      console.log("in C")
-    }
-    if(this.drawingBoardId ==="partD"){
-      console.log("in D")
-   }
+  //   if(this.drawingBoardId ==="partA"){
+  //     console.log("in A")
+  //   }
+  //   if(this.drawingBoardId ==="partB"){
+  //     console.log("in B")
+  //   }
+  //   if(this.drawingBoardId ==="partC"){
+  //     console.log("in C")
+  //   }
+  //   if(this.drawingBoardId ==="partD"){
+  //     console.log("in D")
+  //  }
   }
 
   clickCanvas(e) {
@@ -49,18 +50,18 @@ class DrawingBoard {
      
     //differentiate which canvas
    //you can remove the console.logs /// 
-     if(this.drawingBoardId ==="partA"){
-      console.log("in A")
-    }
-    if(this.drawingBoardId ==="partB"){
-      console.log("in B")
-    }
-    if(this.drawingBoardId ==="partC"){
-      console.log("in C")
-    }
-    if(this.drawingBoardId ==="partD"){
-      console.log("in D")
-      }
+    //  if(this.drawingBoardId ==="partA"){
+    //   console.log("in A")
+    // }
+    // if(this.drawingBoardId ==="partB"){
+    //   console.log("in B")
+    // }
+    // if(this.drawingBoardId ==="partC"){
+    //   console.log("in C")
+    // }
+    // if(this.drawingBoardId ==="partD"){
+    //   console.log("in D")
+    //   }
   }
   /* method to add obj to canvas */
   addObj(objToAdd) {
@@ -80,10 +81,11 @@ class DrawingBoard {
   /* method to add animate objects on canvas */
   animate() {
 
-     this.context.clearRect(0,0,this.canvas.width,this.canvas.height)
+    this.context.clearRect(0,0,this.canvas.width,this.canvas.height)
 
     for (let i = 0; i < this.objectsOnCanvas.length; i++) {
      this.objectsOnCanvas[i].update(this.micVolume); //get volume for both task 2 n 3 
+     this.objectsOnCanvas[i].update();//for task 4
      this.objectsOnCanvas[i].display();
     }
   }

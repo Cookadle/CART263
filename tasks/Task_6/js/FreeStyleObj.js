@@ -21,8 +21,9 @@ class FreeStyleObj {
     this.context.lineWidth = 4; //for thickness
     this.context.beginPath();
     this.context.moveTo(this.x, this.y)
+
 for (let i = 0; i < this.context.canvas.width; i++) {
-   let x = i + this.x;
+    let x = i + this.x;
     let y = this.y + Math.sin(this.theta + (i + this.x) * 0.05) * this.yOffset;
 
     if (i === 0) {
