@@ -83,7 +83,7 @@ class DrawingBoard {
      this.context.clearRect(0,0,this.canvas.width,this.canvas.height)
 
     for (let i = 0; i < this.objectsOnCanvas.length; i++) {
-     this.objectsOnCanvas[i].update(this.micVolume); //get volume
+     this.objectsOnCanvas[i].update(this.micVolume); //get volume for both task 2 n 3 
      this.objectsOnCanvas[i].display();
     }
   }

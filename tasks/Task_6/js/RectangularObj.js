@@ -7,10 +7,10 @@ class RectangularObj {
     this.width = w;
     this.height = h;
     this.speed = 2; // move right default
-    this.fill_color = f_color;
+    this.fill_color = "#AAAAAA"; // start gray
     this.stroke_color = s_color;
-    this.startAngle = 0;
-    this.endAngle = Math.PI * 2; //full rotation
+    //this.startAngle = 0;
+    //this.endAngle = Math.PI * 2; //full rotation
     this.context = context;
 
   }
@@ -24,11 +24,14 @@ class RectangularObj {
   }
 
   update(volume) {
-    //update freestyle
-    // this.x+=1;
-    //class p; we set up mic volume storage
+  this.x += this.speed;
+    if (this.x + this.width > 400 || this.x < 0) {
+      this.speed *= -1; // reverse direction //class p; move horizontally and bounce off canvas 
+      }
+  
+    //class p; once volume come on size color color are changing
     if (volume !== undefined) {
-      this.micVolume = volume;
+      this.micVolume = volume; //store it
       //class p; then size will change cuz mic
       this.width = 40 + this.micVolume * 0.4;   // width grow volume increases
       this.height = 60 + this.micVolume * 0.4;  // height grow volume increases
@@ -36,14 +39,10 @@ class RectangularObj {
       let r = Math.min(255, this.micVolume * 3);
       this.fill_color = `rgb(${r}, 50, 50)`; // class p ;redder fill when volume goes up and reduced green/blue values
 
-      //class p; move horizontally and bounce off canvas 
-      this.x += this.speed;
-
-      if (this.x + this.width > 400 || this.x < 0) {
-        this.speed *= -1; // reverse direction
-      }
-      
     }
+     
+
+  
     //console.log("rectangle update")
   } 
 }

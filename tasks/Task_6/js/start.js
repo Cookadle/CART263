@@ -74,8 +74,11 @@ function go_all_stuff() {
         if (analyser) {
             analyser.getByteFrequencyData(dataArray);// class pres: get data for sound 
             let volume = dataArray.reduce((a, b) => a + b) / dataArray.length;//class p:conver our multiple values into one
+            volume = volume * 2; 
             // class p;send volume to board B
             drawingBoardB.setMicInput(volume);
+            //class p t3;send volume to board C
+            drawingBoardC.setMicInput(volume);
         }//class p:bring them to drawing board js
 
 
@@ -88,56 +91,6 @@ function go_all_stuff() {
         drawingBoardD.run(videoEl)
         window.requestAnimationFrame(animationLoop);
     }
-
-
-
-    /** TASK 1:(Drawing Board A) - 
-     *  1: animate the circle object(s) somehow/anyhow.. (there may be more than one)
-     * You can use the mouse coordinates - the canvas ALREADY has event listeners for mouse click and mouse move
-     * implemeneted, as well as the proper mouseX and mouseY (NO need to add)
-     * -> ensure that any properties that are changed by the circle object occur in the update method already provided,
-     * and use the member properties provided (you may add new ones ... or not :)
-     * 
-     * 2: add new circle objects (different sizes, positions, colors) to the canvas (board A) using some form of user interaction
-     * 3: remove new circle objects from the canvas (board A) using some other form of user interaction 
-     * Please for this exercise - do not add any new shapes other than the circular object...
-     * 
-     */
-
-
-    /** TASK 2:(Drawing Board B) - 
-     *  1: Affect the rectangle by input from the microphone somehow, in real time...
-     *  at least two properties of the rectangle need to update and change...
-     *  2: apply some arbitrary animation to the rectangle obj (change the properties in the update method provided)
-     * -> the code for the microphone has NOT been added  - you need to implement it correctly...
-     *  
-     */
-
-    /** TASK 3:(Drawing Board C) - 
-     *  1: Affect the free-style shape by input from the microphone somehow, in real time...
-     *  at least two properties of the free-style shape need to update and change...
-     *  2: apply some arbitrary animation to the free-style shape (change the properties in the update method provided)
-     * -> the code for the microphone has NOT been added  - you need to implement it correctly...
-     *  
-     */
-
-    /** TASK 4:(Video - recorded - )
-     * // add filters or manipulate the pixels... take user input from the boxes..
-     *  1: using thr provided VideoObj class - > 
-     * you will see all the code needed for activating  a blur filter on the video - activate it
-     * 2: Next: apply the same logic to enable the other 3 possible filters (adding the event listeners etc)
-     * -> make sure to look at the input/output ranges for the values
-     * 3: -> apply the context filters  to the video for the three filter options (and activate the blur as well)
-     * 4: ->  using the mousemove event listener (already applied in the drawing board) - 
-     * make the rectangle (over the video) - follow the mouse ... AND change color when you click on the canvas
-     * USE & FILL IN THE METHODS ALREADY set out in the VideoObj class...
-     * 
-     * 
-     * PLEASE NOTE: there will be marks taken off if you ignore the instructions ;)
-     *  
-     */
-
-
 
 
 }
