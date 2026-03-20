@@ -1,3 +1,4 @@
+//TEAM:NouNounne Barette,Joyce A. Lam,Jeany Corrius V.
 class VideoObj {
   constructor(x, y, w, h, videoElement, context) {
     this.videoElement = videoElement;

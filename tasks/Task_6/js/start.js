@@ -1,5 +1,5 @@
+//TEAM:NouNounne Barette,Joyce A. Lam,Jeany Corrius V.
 window.onload = go_all_stuff;
-
 function go_all_stuff() {
     console.log("go");
     //mic var set up first (notes for class presentation;)
@@ -25,7 +25,7 @@ function go_all_stuff() {
             console.log("had an error getting the microphone", err)
         });
 
-        
+
     /* for loading the video */
     let videoEl = document.getElementById("video-birds");
     window.addEventListener("click", function () {

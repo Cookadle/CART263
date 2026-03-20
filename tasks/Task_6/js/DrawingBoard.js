@@ -1,3 +1,4 @@
+//TEAM:NouNounne Barette,Joyce A. Lam,Jeany Corrius V.
 class DrawingBoard {
   /* Constructor */
   constructor(canvas, context,drawingBoardId) {

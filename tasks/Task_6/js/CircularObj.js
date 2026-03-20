@@ -1,3 +1,4 @@
+//TEAM:NouNounne Barette,Joyce A. Lam,Jeany Corrius V.
 class CircularObj {
   constructor(x, y, radius, f_color, s_color, context) {
     // We write instructions to set up a Flower here

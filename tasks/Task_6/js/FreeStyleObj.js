@@ -1,3 +1,4 @@
+//TEAM:NouNounne Barette,Joyce A. Lam,Jeany Corrius V.
 class FreeStyleObj {
   constructor(x, y, length, f_color, s_color, context) {
     // We write instructions to set up a Flower here
