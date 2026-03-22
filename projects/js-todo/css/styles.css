@@ -8,16 +8,15 @@ body {
     margin: 0;
     padding: 0;
 }
-.todo-container {/*block/grid*/
+.todo-container {
     background: #fff;
     margin: 60px auto;
-    display:grid;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 8px;
     box-shadow: 0 4px 20px rgba(187, 255, 0, 0.199);
-    width: 70%;    
-    max-width: 580px;
-    margin-top: 150px;
+    width: 100%;    
+    max-width: 550px;
+    margin-top: 50px;
 }
 .todo-footer {/*button filters(all active) modified here */
     display: flex;   
