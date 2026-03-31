@@ -6,11 +6,12 @@ const todoList = document.getElementById("task-list");
 const showAll = document.getElementById("show-all");
 const showActive = document.getElementById("show-active");
 const showCompleted = document.getElementById("show-completed");
+const startGameBtn = document.getElementById("start-game");
 //const showDeleted = document.getElementById("show-deleted");
 
 //var
 let currentFilter = "all";
-
+////////////////////TASK MANAGEMENT TASK MANAGEMENT TASK MANAGEMENT START//////////////////////////////////////
 
 //ADDING TASKS BABEY ( code inspired by >https://amd.codes/posts/simple-java-script-to-do-app-with-local-storage
 function addTask() {
@@ -72,7 +73,7 @@ function addTask() {
                 li.textContent = editInput.value.trim() || originalText;
                 li.appendChild(editBtn);
                 li.appendChild(deleteBtn);
-                
+
                 saveTasks();
             } else if (e.key === "Escape") {
                 textSpan.textContent = editInput.value.trim() || originalText;
@@ -80,7 +81,7 @@ function addTask() {
                 li.appendChild(textSpan);
                 li.appendChild(editBtn);
                 li.appendChild(deleteBtn);
-                
+
 
             }
         });
@@ -170,7 +171,7 @@ function loadTasks() {//reload the saved task list when page load
                     li.appendChild(textSpan);
                     li.appendChild(editBtn);
                     li.appendChild(deleteBtn);
-                    
+
                     saveTasks();
                 } else if (e.key === "Escape") {
                     li.textContent = originalText;
@@ -187,7 +188,10 @@ function loadTasks() {//reload the saved task list when page load
 
     });
 }
+////////////////////TASK MANAGEMENT TASK MANAGEMENT TASK MANAGEMENT END //////////////////////////////////////
 
+
+//////////////////////FILTERS FILTERS FILTERS START////////////////////////////////////////////////////
 function taskFilter() {
 
     if (currentFilter === "all") {
@@ -264,9 +268,118 @@ function updateFiltersBtn() {//show which filter is on
         showCompleted.setAttribute("aria-pressed", "true");
     }
 }
-
+//////////////////////FILTERS FILTERS FILTERS END////////////////////////////////////////////////////
 loadTasks();
 updateFiltersBtn();
+
+
+//PHASER TIME DATA
+function getTasksArray() {
+    const tasks = []; //store tasks as objects 4 phaser lib
+    document.querySelectorAll("#task-list .task").forEach(taskEl => {
+        tasks.push({
+            text: taskEl.firstChild.textContent,//grab text task
+            completed: taskEl.classList.contains("completed")//check complete status
+        });
+    });
+    return tasks;
+}
+
+//console.log(getTasksArray());
+
+///////////////////////////////////////////////PHASER / GAME LOGIC START //////////////////////////////////////////
+//https://pippinbarr.com/cart263-2021/topics/game-engine/phaser-3-setup.html for references
+function startGame(tasks) {
+    const gameContainer = document.getElementById('game-container');//canvas created in game container
+
+    //remove previous canvas that appears when double click start game
+    if (gameContainer.firstChild) {
+        gameContainer.firstChild.remove();
+    }
+    console.log("Starting Phaser game with tasks:", tasks);
+
+    class ToDoScene extends Phaser.Scene {
+        constructor() {
+            super({
+                key: 'ToDoScene'
+
+            });
+        }
+
+        preload() {//future images maybe
+        }
+
+        create() {
+
+            this.score = 0;//score
+            this.scoreText = this.add.text(20, 10, "Score: 0", { font: "20px Arial", fill: "#000" });
+            this.cameras.main.setBackgroundColor('#f5f5f5');//bground colour
+            this.tasksGroup = this.add.group(); //group 4 keeping task
+
+            //add falling task
+            tasks.forEach(task => {
+                const mark = task.completed ? " ✅" : " ⬜";
+                const taskText = this.add.text(
+                    Phaser.Math.Between(50, 500), //random X posit
+                    -50,//start above screen y posit
+                    mark + task.text,//text +emoji showned here
+                    { font: "20px Arial", fill: "#000" }
+                );
+
+
+                this.physics.world.enable(taskText);//make text interactive
+                taskText.body.setVelocityY(Phaser.Math.Between(50, 150)); //falling speed
+                taskText.body.setVelocityX(Phaser.Math.Between(-50, 50));//tokyodrift these tasks
+                taskText.body.setAllowGravity(false);
+                taskText.body.setCollideWorldBounds(false);//falls through bottom floor
+                taskText.body.setSize(taskText.width, taskText.height);
+                taskText.setInteractive(); //clickable text ACTIVATED
+                taskText.on('pointerdown', () => {
+                    this.score += 1;
+                    this.scoreText.setText("Score: " + this.score);
+                    taskText.destroy();//remove task once clicked
+                });
+                this.tasksGroup.add(taskText);
+            });
+        }
+
+        update() {
+            //loop task then remove tasks if fall off bottom 
+            this.tasksGroup.getChildren().forEach(task => {
+                if (task.y > 450) {
+                    task.destroy();
+                }
+            });
+        }
+    }
+
+
+    const config = {
+        type: Phaser.AUTO,
+        width: 550,
+        height: 400,
+        parent: "game-container",
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 0 },
+                debug: false
+            }
+        },
+        scene: ToDoScene
+    };
+    new Phaser.Game(config); //start game
+}
+
+
+///////////////////////////////////////////////PHASER / GAME LOGIC END//////////////////////////////////////////
+
+
+
+
+
+
+///////////////////////////////////////////////event listener///////////////////////////////
 
 //Add task when button clicked n enter is pressed(user experience ++)
 addTaskBtn.addEventListener("click", addTask);
@@ -278,3 +391,22 @@ showAll.addEventListener("click", filterAll);
 showActive.addEventListener("click", filterActive);
 showCompleted.addEventListener("click", filterCompleted);
 //showDeleted.addEventListener("click", filterDeleted);
+
+
+startGameBtn.addEventListener("click", () => {
+    const tasks = getTasksArray(); //get current tasks
+    startGame(tasks);
+});
+
+///////////////////////////////////////event listener/////////////////////////////////////////////////
+
+
+
+
+
+
+
+////////////////////////////////////////////////////
+
+
+
