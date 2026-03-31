@@ -287,7 +287,7 @@ function getTasksArray() {
 
 //console.log(getTasksArray());
 
-///////////////////////////////////////////////PHASER / GAME LOGIC//////////////////////////////////////////
+///////////////////////////////////////////////PHASER / GAME LOGIC START //////////////////////////////////////////
 //https://pippinbarr.com/cart263-2021/topics/game-engine/phaser-3-setup.html for references
 function startGame(tasks) {
     const gameContainer = document.getElementById('game-container');//canvas created in game container
@@ -326,9 +326,10 @@ function startGame(tasks) {
                     { font: "20px Arial", fill: "#000" }
                 );
 
-            
+
                 this.physics.world.enable(taskText);//make text interactive
                 taskText.body.setVelocityY(Phaser.Math.Between(50, 150)); //falling speed
+                taskText.body.setVelocityX(Phaser.Math.Between(-50, 50));//tokyodrift these tasks
                 taskText.body.setAllowGravity(false);
                 taskText.body.setCollideWorldBounds(false);//falls through bottom floor
                 taskText.body.setSize(taskText.width, taskText.height);
@@ -352,14 +353,14 @@ function startGame(tasks) {
         }
     }
 
-    
+
     const config = {
         type: Phaser.AUTO,
         width: 550,
         height: 400,
         parent: "game-container",
         physics: {
-            default: 'arcade', 
+            default: 'arcade',
             arcade: {
                 gravity: { y: 0 },
                 debug: false
@@ -371,7 +372,7 @@ function startGame(tasks) {
 }
 
 
-
+///////////////////////////////////////////////PHASER / GAME LOGIC END//////////////////////////////////////////
 
 
 
