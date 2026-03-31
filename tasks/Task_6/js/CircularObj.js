@@ -1,3 +1,4 @@
+//TEAM:NouNounne Barette,Joyce A. Lam,Jeany Corrius V.
 class CircularObj {
   constructor(x, y, radius, f_color, s_color, context) {
     // We write instructions to set up a Flower here
@@ -10,6 +11,9 @@ class CircularObj {
     this.startAngle = 0;
     this.endAngle = Math.PI * 2; //full rotation
     this.context = context;
+
+    this.velocityX = 4;
+    this.velocityY = 1;
   }
 
   display() {
@@ -31,8 +35,26 @@ class CircularObj {
   }
 
   update() {
-    //update circle
-    //this.x += 1;
-    //console.log("circle update");
+    let parent = document.querySelector("#partA")
+    // console.log(parent)
+    let bounds = parent.getBoundingClientRect();
+
+    //move circle
+    this.x += this.velocityX
+    this.y += this.velocityY
+
+    // bounce off edges
+    if (this.x > bounds.width - this.radius) {
+      this.velocityX *= -1
+    }
+    if (this.x < 0 + this.radius) {
+      this.velocityX *= -1
+    }
+    if (this.y > bounds.height - this.radius) {
+      this.velocityY *= -1
+    }
+    if (this.y < this.radius) {
+      this.velocityY *= -1
+    }
   }
 }

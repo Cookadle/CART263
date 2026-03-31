@@ -1,5 +1,5 @@
+//TEAM:NouNounne Barette,Joyce A. Lam,Jeany Corrius V.
 window.onload = go_all_stuff;
-
 function go_all_stuff() {
     console.log("go");
     //mic var set up first (notes for class presentation;)
@@ -24,6 +24,8 @@ function go_all_stuff() {
         .catch(function (err) {//....handle error...
             console.log("had an error getting the microphone", err)
         });
+
+
     /* for loading the video */
     let videoEl = document.getElementById("video-birds");
     window.addEventListener("click", function () {
@@ -92,5 +94,83 @@ function go_all_stuff() {
         window.requestAnimationFrame(animationLoop);
     }
 
+
+/** TASK 1:(Drawing Board A) - 
+ *  1: animate the circle object(s) somehow/anyhow.. (there may be more than one)
+ * You can use the mouse coordinates - the canvas ALREADY has event listeners for mouse click and mouse move
+ * implemeneted, as well as the proper mouseX and mouseY (NO need to add)
+ * -> ensure that any properties that are changed by the circle object occur in the update method already provided,
+ * and use the member properties provided (you may add new ones ... or not :)
+ * 
+ * 2: add new circle objects (different sizes, positions, colors) to the canvas (board A) using some form of user interaction
+ * 3: remove new circle objects from the canvas (board A) using some other form of user interaction 
+ * Please for this exercise - do not add any new shapes other than the circular object...
+ * 
+ */
+    let circularObj = new CircularObj(100,100,20,"#FFC300","#E6E6FA", drawingBoardA.context);
+    drawingBoardA.addObj(circularObj); //calls the CircularObj
+    let canvasA = theCanvases[0];
+
+
+
+/** TASK 2:(Drawing Board B) - 
+ *  1: Affect the rectangle by input from the microphone somehow, in real time...
+ *  at least two properties of the rectangle need to update and change...
+ *  2: apply some arbitrary animation to the rectangle obj (change the properties in the update method provided)
+ * -> the code for the microphone has NOT been added  - you need to implement it correctly...
+ *  
+ */
+
+    let rectangularObj = new RectangularObj(100,100,50,70,"#FF5733","#E6E6FA",drawingBoardB.context);
+    drawingBoardB.addObj(rectangularObj);
+    let canvasB = theCanvases[1];
+
+/** TASK 3:(Drawing Board C) - 
+ *  1: Affect the free-style shape by input from the microphone somehow, in real time...
+ *  at least two properties of the free-style shape need to update and change...
+ *  2: apply some arbitrary animation to the free-style shape (change the properties in the update method provided)
+ * -> the code for the microphone has NOT been added  - you need to implement it correctly...
+ *  
+ */
+    let freestyleObj = new FreeStyleObj(10,100,300,"#CF9FFF","#CF9FFF", drawingBoardC.context);
+    drawingBoardC.addObj(freestyleObj);
+    let canvasC = theCanvases[2];
+
+/** TASK 4:(Video - recorded - )
+ * // add filters or manipulate the pixels... take user input from the boxes..
+ *  1: using thr provided VideoObj class - > 
+ * you will see all the code needed for activating  a blur filter on the video - activate it
+ * 2: Next: apply the same logic to enable the other 3 possible filters (adding the event listeners etc)
+ * -> make sure to look at the input/output ranges for the values
+ * 3: -> apply the context filters  to the video for the three filter options (and activate the blur as well)
+ * 4: ->  using the mousemove event listener (already applied in the drawing board) - 
+ * make the rectangle (over the video) - follow the mouse ... AND change color when you click on the canvas
+ * USE & FILL IN THE METHODS ALREADY set out in the VideoObj class...
+ * 
+ * 
+ * PLEASE NOTE: there will be marks taken off if you ignore the instructions ;)
+ *  
+ */
+    
+    let videoObj = new VideoObj(0,0,400,300,videoEl,drawingBoardD.context);
+    drawingBoardD.addObj(videoObj); //calls the VideoObj
+    let canvasD = theCanvases[3]; //calls the specific canvas
+    canvasD.style.cursor = "none"; // remove cursor
+
+    //trigers the colour change
+    canvasD.addEventListener("click", function() {
+        let colour = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+        videoObj.changeColor(colour);
+        
+    });
+
+    //triggers the position change
+    canvasD.addEventListener("mousemove", function(e) {
+        let rect = canvasD.getBoundingClientRect();
+        let mx = e.clientX - rect.left;
+        let my = e.clientY - rect.top;
+
+        videoObj.updatePositionRect(mx, my);
+    });
 
 }
