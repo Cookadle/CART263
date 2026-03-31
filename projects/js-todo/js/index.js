@@ -10,7 +10,7 @@ const showCompleted = document.getElementById("show-completed");
 
 //var
 let currentFilter = "all";
-
+////////////////////TASK MANAGEMENT TASK MANAGEMENT TASK MANAGEMENT START//////////////////////////////////////
 
 //ADDING TASKS BABEY ( code inspired by >https://amd.codes/posts/simple-java-script-to-do-app-with-local-storage
 function addTask() {
@@ -187,7 +187,10 @@ function loadTasks() {//reload the saved task list when page load
 
     });
 }
+////////////////////TASK MANAGEMENT TASK MANAGEMENT TASK MANAGEMENT END //////////////////////////////////////
 
+
+//////////////////////FILTERS FILTERS FILTERS START////////////////////////////////////////////////////
 function taskFilter() {
 
     if (currentFilter === "all") {
@@ -264,9 +267,33 @@ function updateFiltersBtn() {//show which filter is on
         showCompleted.setAttribute("aria-pressed", "true");
     }
 }
-
+//////////////////////FILTERS FILTERS FILTERS END////////////////////////////////////////////////////
 loadTasks();
 updateFiltersBtn();
+
+
+//PHASER TIME
+function getTasksArray() {
+    const tasks = []; //store tasks as objects for phaser library
+
+    //select task elements list
+    document.querySelectorAll("#task-list .task").forEach(taskEl => {
+
+        tasks.push({
+            //get text inside task
+            text: taskEl.firstChild.textContent,
+
+            //check if its completed
+            completed: taskEl.classList.contains("completed")
+        });
+    });
+
+    return tasks;
+}
+
+//console.log(getTasksArray());
+
+///////////////////////////////////////////////event listener///////////////////////////////
 
 //Add task when button clicked n enter is pressed(user experience ++)
 addTaskBtn.addEventListener("click", addTask);
@@ -278,3 +305,10 @@ showAll.addEventListener("click", filterAll);
 showActive.addEventListener("click", filterActive);
 showCompleted.addEventListener("click", filterCompleted);
 //showDeleted.addEventListener("click", filterDeleted);
+
+///////////////////////////////////////event listener/////////////////////////////////////////////////
+
+////////////////////////////////////////////////////
+
+
+
