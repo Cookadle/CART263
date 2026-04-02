@@ -7,13 +7,31 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 
-    // SUN
+    //SUN
     const sun = document.createElement("div");
     sun.classList.add("sun");
     sun.style.backgroundColor = "rgb(240, 206, 83)";
     sun.style.left = "50px";
     sun.style.top = "30px";
-    garden.appendChild(sun);
+    //append to body instead so can be click
+    document.body.appendChild(sun);
+
+    let isNight = false; //day at first
+    sun.addEventListener("click", () => {
+        isNight = !isNight; //switch between day/night
+
+        if (isNight) {
+            //night mode
+            garden.style.background = "linear-gradient(to bottom, #0b1d3b 0%, #1a2b4c 40%, #0a1f2b 41%, #061520 100%)";
+            sun.style.backgroundColor = "rgb(200, 200, 255)";
+            sun.style.boxShadow = "0 0 20px rgba(255,255,255,0.6)"; // soft glow
+        } else {
+            //day mode
+            garden.style.background = "linear-gradient(to bottom, #bde0fe 0%, #e6f2ff 40%, #c7f9cc 41%, #80ed99 100%)";
+            sun.style.backgroundColor = "rgb(240, 206, 83)";
+            sun.style.boxShadow = "none";
+        }
+    });
 
     const numFlowers = 60;
 
@@ -21,23 +39,23 @@ window.addEventListener("DOMContentLoaded", function () {
         const spacing = window.innerWidth / numFlowers;
         const flowerX = i * spacing + spacing / 2 + (Math.random() * 20 - 10);
         const stemHeight = Math.random() * 50 + 30;
-
+        const flowerWidth = 40;
 
         //FLOWER
         const flower = document.createElement("div");
-        const flowerWidth = 40;
         flower.style.position = "absolute";
         flower.style.bottom = "0px";
         flower.style.width = flowerWidth + "px";
         flower.style.left = flowerX - flowerWidth / 2 + "px";
         flower.style.height = stemHeight + "px";
         flower.style.transformOrigin = "bottom center";
-        flower.style.transition = "transform 0.2s ease-out";
 
         garden.appendChild(flower);
         flowers.push({
             el: flower,
-            x: flowerX
+            x: flowerX,
+            angle: 0,
+            target: 0
         });
 
 
@@ -83,11 +101,12 @@ window.addEventListener("DOMContentLoaded", function () {
             const offsetY = Math.sin(angle) * petalRadius;
 
             petal.style.left = flowerWidth / 2 + offsetX - petalSize / 2 + "px";
-            petal.style.bottom = stemHeight + offsetY - petalSize / 2 + "px"; // center petal
+            petal.style.bottom = stemHeight + offsetY - petalSize / 2 + "px"; //center4petal
 
             flower.appendChild(petal);
         }
     }
+    //guided and inspired by https://stackoverflow.com/questions/34374774/how-to-add-inertia-to-animations-tracking-mouse-move?
     document.addEventListener("mousemove", (e) => {
         const mouseX = e.clientX;
 
@@ -97,12 +116,22 @@ window.addEventListener("DOMContentLoaded", function () {
 
             if (Math.abs(distance) < maxDistance) {
                 const force = distance / maxDistance;
-                const angle = force * 10;
-                f.el.style.transform = `rotate(${angle}deg)`;
+                f.target = force * 15;
             } else {
-                f.el.style.transform = "rotate(0deg)";
+                f.target = 0;
             }
         });
     });
+
+    //guided and inspired by https://stackoverflow.com/questions/34374774/how-to-add-inertia-to-animations-tracking-mouse-move?
+    function animate() {
+        flowers.forEach(f => {
+            f.angle += (f.target - f.angle) * 0.1;
+            f.el.style.transform = `rotate(${f.angle}deg)`;
+            f.el.style.filter = isNight ? "brightness(0.6)" : "brightness(1)";
+        });
+        requestAnimationFrame(animate);
+    }
+    animate();
 
 });

@@ -16,6 +16,7 @@ body {
     height: 100vh;
     z-index: -1;
     overflow: hidden;
+      transition: background 1s ease;
 
     background: linear-gradient(
         to bottom,
@@ -97,16 +98,6 @@ button.active {/*all,completed,active,etc buttons*/
     margin: 20px auto;
 }
 
-/* Garden background */
-#garden-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1; /* Behind your To-Do app */
-  pointer-events: none; /* To let clicks go through to the To-Do app */
-}
 
 /* Sky */
 .sky {
@@ -129,6 +120,10 @@ button.active {/*all,completed,active,etc buttons*/
   height: 80px;
   border-radius: 50%;
   position: absolute;
+  pointer-events: auto; /* allow clicks */
+  transition: background 1s ease, box-shadow 1s ease;
+  cursor: pointer; /* show it's clickable */
+  z-index: 1; /* put the sun above the background */
 }
 
 /* Flowers */

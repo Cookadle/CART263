@@ -11,6 +11,12 @@ const startGameBtn = document.getElementById("start-game");
 
 //var
 let currentFilter = "all";
+
+
+
+
+
+
 ////////////////////TASK MANAGEMENT TASK MANAGEMENT TASK MANAGEMENT START//////////////////////////////////////
 
 //ADDING TASKS BABEY ( code inspired by >https://amd.codes/posts/simple-java-script-to-do-app-with-local-storage
@@ -191,6 +197,10 @@ function loadTasks() {//reload the saved task list when page load
 ////////////////////TASK MANAGEMENT TASK MANAGEMENT TASK MANAGEMENT END //////////////////////////////////////
 
 
+
+
+
+
 //////////////////////FILTERS FILTERS FILTERS START////////////////////////////////////////////////////
 function taskFilter() {
 
@@ -287,7 +297,13 @@ function getTasksArray() {
 
 //console.log(getTasksArray());
 
-///////////////////////////////////////////////PHASER / GAME LOGIC START //////////////////////////////////////////
+
+
+
+
+
+
+///////////////////////////////////////////////PHASER GAME LOGIC START //////////////////////////////////////////
 //https://pippinbarr.com/cart263-2021/topics/game-engine/phaser-3-setup.html for references
 function startGame(tasks) {
     const gameContainer = document.getElementById('game-container');//canvas created in game container
@@ -379,7 +395,10 @@ function startGame(tasks) {
 
 
 
-///////////////////////////////////////////////event listener///////////////////////////////
+
+
+
+///////////////////////////////////////////////EVENT LISTENER START///////////////////////////////
 
 //Add task when button clicked n enter is pressed(user experience ++)
 addTaskBtn.addEventListener("click", addTask);
@@ -398,7 +417,7 @@ startGameBtn.addEventListener("click", () => {
     startGame(tasks);
 });
 
-///////////////////////////////////////event listener/////////////////////////////////////////////////
+///////////////////////////////////////EVENT LISTENER END/////////////////////////////////////////////////
 
 
 
