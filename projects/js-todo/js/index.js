@@ -306,69 +306,103 @@ function getTasksArray() {
 ///////////////////////////////////////////////PHASER GAME LOGIC START //////////////////////////////////////////
 //https://pippinbarr.com/cart263-2021/topics/game-engine/phaser-3-setup.html for references
 function startGame(tasks) {
-    const gameContainer = document.getElementById('game-container');//canvas created in game container
+    const gameContainer = document.getElementById('game-container');
 
-    //remove previous canvas that appears when double click start game
+    //remove previous canvas instead of stacking
     if (gameContainer.firstChild) {
         gameContainer.firstChild.remove();
     }
-    console.log("Starting Phaser game with tasks:", tasks);
 
     class ToDoScene extends Phaser.Scene {
         constructor() {
-            super({
-                key: 'ToDoScene'
-
-            });
+            super({ key: 'ToDoScene' });
         }
 
-        preload() {//future images maybe
-        }
+        preload() {}
 
         create() {
-
-            this.score = 0;//score
+            this.score = 0;
+            this.lives = 3;
             this.scoreText = this.add.text(20, 10, "Score: 0", { font: "20px Arial", fill: "#000" });
-            this.cameras.main.setBackgroundColor('#f5f5f5');//bground colour
-            this.tasksGroup = this.add.group(); //group 4 keeping task
+            this.livesText = this.add.text(400, 10, "Lives: 3", { font: "20px Arial", fill: "#f00" });
 
-            //add falling task
-            tasks.forEach(task => {
-                const mark = task.completed ? " ✅" : " ⬜";
-                const taskText = this.add.text(
-                    Phaser.Math.Between(50, 500), //random X posit
-                    -50,//start above screen y posit
-                    mark + task.text,//text +emoji showned here
-                    { font: "20px Arial", fill: "#000" }
-                );
+            this.cameras.main.setBackgroundColor('#b6adad');
+            this.tasksGroup = this.add.group();
 
+            //spawn over time instead all at once +continous loop
+            this.time.addEvent({
+                delay: 1000, //1 second 
+                loop: true,
+                callback: () => {
+                    if (tasks.length === 0) return;
 
-                this.physics.world.enable(taskText);//make text interactive
-                taskText.body.setVelocityY(Phaser.Math.Between(50, 150)); //falling speed
-                taskText.body.setVelocityX(Phaser.Math.Between(-50, 50));//tokyodrift these tasks
-                taskText.body.setAllowGravity(false);
-                taskText.body.setCollideWorldBounds(false);//falls through bottom floor
-                taskText.body.setSize(taskText.width, taskText.height);
-                taskText.setInteractive(); //clickable text ACTIVATED
-                taskText.on('pointerdown', () => {
-                    this.score += 1;
-                    this.scoreText.setText("Score: " + this.score);
-                    taskText.destroy();//remove task once clicked
-                });
-                this.tasksGroup.add(taskText);
+                    const task = Phaser.Utils.Array.GetRandom(tasks);
+                    this.spawnTask(task);
+                }
             });
+        }
+
+        spawnTask(task) {
+            const mark = task.completed ? " ✅" : " ⬜";
+            const taskText = this.add.text(
+                Phaser.Math.Between(50, 500),
+                -50,
+                mark + task.text,
+                { font: "20px Arial", fill: "#000" }
+            );
+
+            this.physics.world.enable(taskText);
+
+            //velocity influenced b completion + length
+            const baseVelocity = task.completed ? 200 : 80;
+            const lengthVelocity = task.text.length * 3;
+            taskText.body.setVelocityY(baseVelocity + lengthVelocity);
+
+            //tokyo drift tasks
+            taskText.body.setVelocityX(Phaser.Math.Between(-50, 50));
+            taskText.body.setAllowGravity(false);
+            taskText.body.setCollideWorldBounds(false);
+
+            taskText.setInteractive();
+            taskText.on('pointerdown', () => {
+                this.score++;
+                this.scoreText.setText("Score: " + this.score);
+                taskText.destroy();
+            });
+
+            this.tasksGroup.add(taskText);
         }
 
         update() {
-            //loop task then remove tasks if fall off bottom 
+            // check missed tasks then -1life
             this.tasksGroup.getChildren().forEach(task => {
-                if (task.y > 450) {
-                    task.destroy();
+                const taskBottomY = task.y + task.height / 2;
+                if (taskBottomY > 400 && !task.missed) {
+                    task.missed = true;
+
+                    this.lives--;
+                    this.livesText.setText("Lives: " + this.lives);
+
+                    if (this.lives <= 0) {
+                        this.scene.start('GameOverScene');
+                    }
                 }
             });
         }
     }
 
+    //game over screen
+    class GameOverScene extends Phaser.Scene {
+        constructor() {
+            super({ key: 'GameOverScene' });
+        }
+        create() {
+            this.add.text(150, 200, "GAME OVER", { font: "40px Arial", fill: "#f00" });
+            this.input.once('pointerdown', () => {
+                this.scene.start('ToDoScene');
+            });
+        }
+    }
 
     const config = {
         type: Phaser.AUTO,
@@ -382,9 +416,10 @@ function startGame(tasks) {
                 debug: false
             }
         },
-        scene: ToDoScene
+        scene: [ToDoScene, GameOverScene]
     };
-    new Phaser.Game(config); //start game
+
+    new Phaser.Game(config);
 }
 
 

@@ -1,3 +1,11 @@
+<script>
+  //direct to landing page coming for the first time
+  //inspired by my previous captcha html https://github.com/Cookadle/Cart211/blob/main/Surveillance/about.html
+  if (!sessionStorage.getItem('visitedLanding')) {
+    sessionStorage.setItem('visitedLanding', 'true');
+    window.location.replace('landing.html'); // 
+  }
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +33,15 @@
     
   </div>
 
-<button id="start-game">🎮 Start Game</button>
+<button id="start-game">🎮Take a break</button>
 <div id="game-container"></div>
+<h3>How to Play </h3>
+  <p>• Tasks fall from the sky </p>
+  <p>• Click tasks to earn points</p>
+  <p>• Miss a task = lose a life </p>
+  <p>• Survive as long as possible!</p>
+  <p>• Get back to work after </p>
+  <p>• Psst.. write long text task to give yourself a better chance at surviving </p>
 <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
   <script src="./js/index.js"></script>
   <script src="./js/garden.js"></script>

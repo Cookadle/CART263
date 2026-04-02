@@ -98,15 +98,12 @@ button.active {/*all,completed,active,etc buttons*/
     margin: 20px auto;
 }
 
-
-/* Sky */
 .sky {
   width: 100%;
   height: 300px;
   background: rgb(83, 154, 240); /* nice blue sky */
 }
 
-/* Grass */
 .grass {
   width: 100%;
   height: calc(100% - 300px);
@@ -120,9 +117,9 @@ button.active {/*all,completed,active,etc buttons*/
   height: 80px;
   border-radius: 50%;
   position: absolute;
-  pointer-events: auto; /* allow clicks */
+  pointer-events: auto; 
   transition: background 1s ease, box-shadow 1s ease;
-  cursor: pointer; /* show it's clickable */
+  cursor: pointer; 
   z-index: 1; /* put the sun above the background */
 }
 
@@ -133,4 +130,54 @@ button.active {/*all,completed,active,etc buttons*/
 
 .petal {
   border-style: solid;
+}
+
+/********************************************** Landing page ****************************************************************/
+#landing-page {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, #a4508b, #5f0a87);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#landing-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+#landing-page p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+#landing-page button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: white;
+  color: #5f0a87;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#landing-page button:hover {
+  background-color: #f0f0f0;
+}
+#landing-page {
+  display: flex !important;
+  background: rgb(36, 41, 46) !important;
+}
+#game-instructions {
+  width: 550px;
+  margin: 10px auto 30px;
+  padding: 10px;
+  background: #ffffffcc;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: left;
 }

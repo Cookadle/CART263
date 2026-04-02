@@ -65,19 +65,13 @@ AND LAST css card styling cause its not as important
 CSS STYLING IDEAS
 https://wpdean.com/css-cards/
 https://uiverse.io/cards
-
+PHASER+TAILWIND LIBRARY for the look of the  css box
 
 PROJECT 2 PART 1 ideas
 GAMIFY THE TO DO
-Add lives oand game over
 Add visual and audio feedback (Add colors 4 completed n active tasks.Play sounds 4 click n miss.)
-Make the task bounce instead of falling off
-Task obstacles
-spawn tasks as “shapes” (squares or triangles) that must be avoided like my frogfrogfrog obstacles game
-Clickable tasks will gain points, obstacle tasks will lose points or lives.(depending on if i add lives)
-animated tasks > bounce or wobble when falling,when clicked tasks could burst into emojis or confetti
-Miss a task screen will shake slightly
-Spawn tasks over time instead of all at once
+add another game 
+
 
 
 
