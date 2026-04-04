@@ -279,11 +279,17 @@ function updateFiltersBtn() {//show which filter is on
     }
 }
 //////////////////////FILTERS FILTERS FILTERS END////////////////////////////////////////////////////
+
+
+
+
+
+
 loadTasks();
 updateFiltersBtn();
 
 
-//PHASER TIME DATA
+///////////////////////////////////////////PHASER TIME DATA
 function getTasksArray() {
     const tasks = []; //store tasks as objects 4 phaser lib
     document.querySelectorAll("#task-list .task").forEach(taskEl => {
@@ -303,7 +309,7 @@ function getTasksArray() {
 
 
 
-///////////////////////////////////////////////PHASER GAME LOGIC START //////////////////////////////////////////
+///////////////////////////////////////////////PHASER GAME LOGIC START-TASK FALLING DOWN //////////////////////////////////////////
 //https://pippinbarr.com/cart263-2021/topics/game-engine/phaser-3-setup.html for references
 function startGame(tasks) {
     const gameContainer = document.getElementById('game-container');
