@@ -16,7 +16,8 @@ export class PlanetD {
 
         //Create planet group
         this.group = new THREE.Group()
-
+        //season for planets
+        this.currentSeason = 0; // 0 = summer, 1 = autumn, 2 = winter
 
         // Create planet
         //STEP 1:
@@ -26,7 +27,7 @@ export class PlanetD {
         //TODO: Add the planet mesh to the planet group.
 
 
-        const planetGeo = new THREE.SphereGeometry(2, 70, 32); // radius between 1.5 and 2
+        const planetGeo = new THREE.SphereGeometry(2, 32, 16); // radius between 1.5 and 2
         const planetMat = new THREE.MeshStandardMaterial({
             color: '#ff0000'
         });
@@ -34,14 +35,21 @@ export class PlanetD {
         //placeholder red planet
         this.mesh = new THREE.Mesh(planetGeo, planetMat);
         this.mesh.castShadow = true;
-        //this.group.add(this.mesh);
+        this.mesh.receiveShadow = true;
 
+        this.group.add(this.mesh);
+
+
+        //for moon orbit
+        this.moon1Angle = Math.random() * Math.PI * 2;
+        this.moon2Angle = Math.random() * Math.PI * 2;
+        this.moon3Angle = Math.random() * Math.PI * 2; //
         //STEP 2: 
         //TODO: Add from 1 to 3 orbiting moons to the planet group. 
         //TODO: The moons should rotate around the planet just like the planet group rotates around the Sun.
 
         //Moon1
-        const moon1Geo = new THREE.SphereGeometry(1, 70, 32);
+        const moon1Geo = new THREE.SphereGeometry(1, 16, 12);
         const moon1Mat = new THREE.MeshStandardMaterial({
             color: '#00a2ff'
         });
@@ -53,7 +61,7 @@ export class PlanetD {
         this.group.add(this.moon1);
 
         //Moon2
-        const moon2Geo = new THREE.SphereGeometry(.5, 70, 32);
+        const moon2Geo = new THREE.SphereGeometry(.5, 16, 12);
         const moon2Mat = new THREE.MeshStandardMaterial({
             color: '#ff00d4'
         });
@@ -63,6 +71,20 @@ export class PlanetD {
         this.moon2.position.set(6, -3, 3);
 
         this.group.add(this.moon2);
+
+
+        // //Moon3
+        const moon3Geo = new THREE.SphereGeometry(0.7, 16, 12);
+        const moon3Mat = new THREE.MeshStandardMaterial({
+            color: '#6e3cfa'
+        });
+
+        this.moon3 = new THREE.Mesh(moon3Geo, moon3Mat);
+
+        this.moon3.position.set(10, 2, 0);
+
+        this.group.add(this.moon3);
+
 
         //STEP 3:
         //TODO: Load Blender models to populate the planet with multiple props and critters by adding them to the planet group.
@@ -77,6 +99,18 @@ export class PlanetD {
 
         this.scene.add(this.group);
     }
+    setSeason(seasonIndex) {
+        if (this.summerPlanet) this.summerPlanet.visible = false;
+        if (this.autumnPlanet) this.autumnPlanet.visible = false;
+        if (this.winterPlanet) this.winterPlanet.visible = false;
+
+        if (seasonIndex === 0 && this.summerPlanet) this.summerPlanet.visible = true;
+        if (seasonIndex === 1 && this.autumnPlanet) this.autumnPlanet.visible = true;
+        if (seasonIndex === 2 && this.winterPlanet) this.winterPlanet.visible = true;
+
+        this.currentSeason = seasonIndex;
+    }
+
 
     update(delta) {
         // Orbit around sun
@@ -85,23 +119,74 @@ export class PlanetD {
         this.group.position.z = Math.sin(this.angle) * this.orbitRadius;
 
         //TODO: Do the moon orbits and the model animations here.
-        // Rotate planet
+        //Rotate planet
         this.group.rotation.y += delta * 0.5;
 
         //make summer visible first and standby for the others
-        if (this.summerPlanet) {
-            this.summerPlanet.visible = false;
+        // if (this.summerPlanet) {
+        //     this.summerPlanet.visible = false;
+        // }
+        // if (this.autumnPlanet) {
+        //     this.autumnPlanet.visible = true;
+        // }
+        // if (this.winterPlanet) {
+        //     this.winterPlanet.visible = false;
+        // }
+        this.setSeason(this.currentSeason);
+        //moons orbit planet
+        if (this.moon1) {
+            this.moon1Angle += delta * 1.0; //speed moon1
+            this.moon1.position.x = Math.cos(this.moon1Angle) * 5;
+            this.moon1.position.z = Math.sin(this.moon1Angle) * 5;
+            this.moon1.position.y = 1;
+
         }
-        if (this.autumnPlanet) {
-            this.autumnPlanet.visible = true;
+
+        if (this.moon2) {
+            this.moon2Angle += delta * 0.7; //speed moon2
+            this.moon2.position.x = Math.cos(this.moon2Angle) * 6;
+            this.moon2.position.z = Math.sin(this.moon2Angle) * 6;
+            this.moon2.position.y = -3;
         }
-        if (this.winterPlanet) {
-            this.winterPlanet.visible = false;
+        if (this.moon3) {
+            this.moon3Angle += delta * 1.5; //speed moon3
+            this.moon3.position.x = Math.cos(this.moon3Angle) * 10;
+            this.moon3.position.z = Math.sin(this.moon3Angle) * 10;
+            this.moon3.position.y = 2;
         }
+
+
+        if (!this.clickedObjects) this.clickedObjects = [];
+
+
+
+
     }
 
     click(mouse, scene, camera) {
         //TODO: Do the raycasting here.
+        const raycaster = new THREE.Raycaster();
+        raycaster.setFromCamera(mouse, camera);
+
+
+        const clickableObjects = [this.mesh, this.summerPlanet, this.autumnPlanet, this.winterPlanet];
+        const intersects = raycaster.intersectObjects(clickableObjects, true); // 
+
+        if (intersects.length > 0) {
+            //cycle through planetseasons
+            this.currentSeason = (this.currentSeason + 1) % 3;
+            this.setSeason(this.currentSeason);
+
+            //planet POP
+            const planet = [this.summerPlanet, this.autumnPlanet, this.winterPlanet][this.currentSeason];
+            planet.scale.set(3.2, 3.2, 3.2);
+            setTimeout(() => {
+                planet.scale.set(3, 3, 3);
+            }
+                , 200);
+
+            //console.log("Season:", ["Summer", "Autumn", "Winter"][this.currentSeason]);
+        }
     }
 
     async loadAndRunModels(objsGroup) {
@@ -176,6 +261,10 @@ export class PlanetD {
 
         //push to group
         objsGroup.add(summerPlanet, autumnPlanet, winterPlanet);
+        //show starting season as summer
+        summerPlanet.visible = true;
+        autumnPlanet.visible = false;
+        winterPlanet.visible = false;
 
     }
 }
