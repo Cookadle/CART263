@@ -1,10 +1,34 @@
 
 body {
-    font-family: Arial, sans-serif;/*change this ugly writing*/
-    background: #f5f5f5;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background: none;
 }
+
+#garden-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+      transition: background 1s ease;
+
+    background: linear-gradient(
+        to bottom,
+        #bde0fe 0%,     
+        #e6f2ff 40%,
+        #c7f9cc 41%,    
+        #80ed99 100%    
+    );
+}
+
+
+
 .todo-container {
     background: #fff;
     margin: 60px auto;
@@ -72,4 +96,88 @@ button.active {/*all,completed,active,etc buttons*/
     width: 550px;
     height: 400px;
     margin: 20px auto;
+}
+
+.sky {
+  width: 100%;
+  height: 300px;
+  background: rgb(83, 154, 240); /* nice blue sky */
+}
+
+.grass {
+  width: 100%;
+  height: calc(100% - 300px);
+  background: rgb(120, 180, 120); /* green grass */
+  position: relative;
+}
+
+/* Sun */
+.sun {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: auto; 
+  transition: background 1s ease, box-shadow 1s ease;
+  cursor: pointer; 
+  z-index: 1; /* put the sun above the background */
+}
+
+/* Flowers */
+.flower {
+  background-color: green;
+}
+
+.petal {
+  border-style: solid;
+}
+
+/********************************************** Landing page ****************************************************************/
+#landing-page {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, #a4508b, #5f0a87);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#landing-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+#landing-page p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+#landing-page button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: white;
+  color: #5f0a87;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#landing-page button:hover {
+  background-color: #f0f0f0;
+}
+#landing-page {
+  display: flex !important;
+  background: rgb(36, 41, 46) !important;
+}
+#game-instructions {
+  width: 550px;
+  margin: 10px auto 30px;
+  padding: 10px;
+  background: #ffffffcc;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: left;
 }
