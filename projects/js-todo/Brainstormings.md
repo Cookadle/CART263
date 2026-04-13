@@ -70,7 +70,8 @@ PHASER+TAILWIND LIBRARY for the look of the  css box
 PROJECT 2 PART 1 ideas
 GAMIFY THE TO DO
 Add visual and audio feedback (Add colors 4 completed n active tasks.Play sounds 4 click n miss.)
-add another game 
+add another game ?
+Add a bee or a bird passing by on the screen(can you make it that if you click on it you get a task that says go spend some time outside/nature)
 
 
 
