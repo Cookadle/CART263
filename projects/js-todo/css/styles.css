@@ -33,8 +33,8 @@ body {
     background: #fff;
     margin: 80px auto;
     padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(187, 255, 0, 0.199);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     width: 100%;    
     max-width: 550px;
     margin-top: 50px;
@@ -54,15 +54,24 @@ body {
     padding: 6px;
 }
 button {/*stylize EVERY button*/
-    padding: 5px 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: none;
+    background: #f1f5f9;
+    transition: all 0.2s ease;
     cursor:pointer;
     display: inline-block;
-    font-size: 13px;
 }
+
 button.active {/*all,completed,active,etc buttons*/
-    background-color: #1f311f; 
+    background-color: #1e293b; 
     color: white;
     border-radius: 4px;
+}
+button:hover{
+  background: #e2e8f0;
+
 }
 .task {
     background: #eee;
@@ -144,7 +153,10 @@ button.active {/*all,completed,active,etc buttons*/
   align-items: center;
   text-align: center;
 }
-
+#landing-page {
+  display: flex !important;
+  background: rgb(36, 41, 46) !important;
+}
 #landing-page h1 {
   font-size: 2.5em;
   margin-bottom: 0.5em;
@@ -168,10 +180,7 @@ button.active {/*all,completed,active,etc buttons*/
 #landing-page button:hover {
   background-color: #f0f0f0;
 }
-#landing-page {
-  display: flex !important;
-  background: rgb(36, 41, 46) !important;
-}
+
 #game-instructions {
   width: 550px;
   margin: 10px auto 30px;
