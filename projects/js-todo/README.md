@@ -5,7 +5,7 @@
 
 
 
-![To-do app screen](images/js-to-do-screen.jpg)
+![To-do app screen](projects/images/js-to-do-screen.jpg)
 
 What can you do?
 
