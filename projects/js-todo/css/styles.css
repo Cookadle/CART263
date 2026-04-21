@@ -1,6 +1,6 @@
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: system-ui,-apple-system, sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -26,15 +26,12 @@ body {
         #80ed99 100%    
     );
 }
-
-
-
 .todo-container {
     background: #fff;
     margin: 80px auto;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     width: 100%;    
     max-width: 550px;
     margin-top: 50px;
@@ -43,15 +40,23 @@ body {
     display: flex;   
     justify-content: center;
     gap: 10px;       
-    margin-top: 20px;       
+    margin-top: 25px;       
 }
 .input-section {
     display: flex;
     gap: 10px;
+    margin-bottom: 15px;
 }
 #task-input {/*make the input box longer while keeping the add task button in place*/
     flex: 1;
-    padding: 6px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    outline: none;
+}
+#task-input:focus {/*ouline box*/
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
 }
 button {/*stylize EVERY button*/
     padding: 6px 12px;
@@ -64,24 +69,33 @@ button {/*stylize EVERY button*/
     display: inline-block;
 }
 
+
 button.active {/*all,completed,active,etc buttons*/
     background-color: #1e293b; 
     color: white;
-    border-radius: 4px;
+    border-radius: 6px;
 }
 button:hover{
   background: #e2e8f0;
 
 }
 .task {
-    background: #eee;
-    margin: 10px;
-    padding: 8px;
+    background: #f8fafc;
+    margin: 8px 0;
+    padding: 12px;
     display: flex;
     align-items: flex-start;
-    border-radius: 4px;
-    gap: 4px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    gap: 8px;
+    transition : all 0.15s ease;
 }
+
+.task:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+}
+
 .task span {
     flex: 1;
     word-break: break-word; /*breaks long texts*/
@@ -94,9 +108,6 @@ button:hover{
     text-decoration: line-through;
 }
 
-.task.completed {
- opacity: 0.6; /* optional, keeps whole task a bit faded */
-}
 .task.completed {/*fade it */
     opacity: 0.6;
 }
@@ -155,7 +166,8 @@ button:hover{
 }
 #landing-page {
   display: flex !important;
-  background: rgb(36, 41, 46) !important;
+   color: #f8fafc;
+  /*background: rgb(36, 41, 46) !important;*/
 }
 #landing-page h1 {
   font-size: 2.5em;
