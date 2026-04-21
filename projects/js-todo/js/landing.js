@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     enterAppBtn.addEventListener("click", () => {
-        // Redirect to the main to-do page
+        //Redirect to the main to-do page
         window.location.href = "index.html";
     });
 

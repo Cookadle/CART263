@@ -1,6 +1,6 @@
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: system-ui,-apple-system, sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -16,7 +16,7 @@ body {
     height: 100vh;
     z-index: -1;
     overflow: hidden;
-      transition: background 1s ease;
+    transition: background 1s ease;
 
     background: linear-gradient(
         to bottom,
@@ -26,15 +26,12 @@ body {
         #80ed99 100%    
     );
 }
-
-
-
 .todo-container {
     background: #fff;
-    margin: 60px auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(187, 255, 0, 0.199);
+    margin: 80px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     width: 100%;    
     max-width: 550px;
     margin-top: 50px;
@@ -43,75 +40,107 @@ body {
     display: flex;   
     justify-content: center;
     gap: 10px;       
-    margin-top: 20px;       
+    margin-top: 25px;       
 }
 .input-section {
     display: flex;
     gap: 10px;
+    margin-bottom: 15px;
 }
-#task-input {/*make the input box longer while keeping the add task button in place*/
+#task-input {
     flex: 1;
-    padding: 6px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    outline: none;
+}
+#task-input:focus {/*ouline box selected*/
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
 }
 button {/*stylize EVERY button*/
-    padding: 5px 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: none;
+    background: #f1f5f9;
+    transition: all 0.2s ease;
     cursor:pointer;
     display: inline-block;
-    font-size: 13px;
 }
+
+
 button.active {/*all,completed,active,etc buttons*/
-    background-color: #1f311f; 
+    background-color: #1e293b; 
     color: white;
-    border-radius: 4px;
+    border-radius: 6px;
 }
+button:hover{
+  background: #e2e8f0;
+
+}
+
+/**********************************************************************task container***********************************************/
+
 .task {
-    background: #eee;
-    margin: 10px;
-    padding: 8px;
+    background: #f8fafc;
+    margin: 8px 0;
+    padding: 12px;
     display: flex;
     align-items: flex-start;
-    border-radius: 4px;
-    gap: 4px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    gap: 8px;
+    transition : all 0.15s ease;
 }
+
+.task:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+}
+
 .task span {
     flex: 1;
-    word-break: break-word; /*breaks long texts*/
+    word-break: break-word;
 }
 .task button:first-of-type {/*put edit/delete on the corner*/ 
     margin-left: auto;
 }
-/* Only cross out the task text, not buttons */
+
 .task.completed span {
     text-decoration: line-through;
 }
 
 .task.completed {
- opacity: 0.6; /* optional, keeps whole task a bit faded */
-}
-.task.completed {/*fade it */
     opacity: 0.6;
 }
-#game-container {/*so i can see what are we working with */
+
+
+
+/**********************************************************************task container***********************************************/
+
+#game-container {/*gamebox */
     border: 2px dashed #444;
     width: 550px;
     height: 400px;
     margin: 20px auto;
 }
+/**********************************************************************garden elements***********************************************/
 
 .sky {
   width: 100%;
   height: 300px;
-  background: rgb(83, 154, 240); /* nice blue sky */
+  background: rgb(83, 154, 240); 
 }
 
 .grass {
   width: 100%;
   height: calc(100% - 300px);
-  background: rgb(120, 180, 120); /* green grass */
+  background: rgb(120, 180, 120); 
   position: relative;
 }
 
-/* Sun */
+
 .sun {
   width: 80px;
   height: 80px;
@@ -120,10 +149,9 @@ button.active {/*all,completed,active,etc buttons*/
   pointer-events: auto; 
   transition: background 1s ease, box-shadow 1s ease;
   cursor: pointer; 
-  z-index: 1; /* put the sun above the background */
+  z-index: 1; 
 }
 
-/* Flowers */
 .flower {
   background-color: green;
 }
@@ -131,6 +159,8 @@ button.active {/*all,completed,active,etc buttons*/
 .petal {
   border-style: solid;
 }
+/**********************************************************************garden elements***********************************************/
+
 
 /********************************************** Landing page ****************************************************************/
 #landing-page {
@@ -146,18 +176,18 @@ button.active {/*all,completed,active,etc buttons*/
 }
 
 #landing-page h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
+  font-size: 40px;
+  margin-bottom: 8px;
 }
 
 #landing-page p {
-  font-size: 1.2em;
-  margin-bottom: 1em;
+  font-size: 19px;
+  margin-bottom: 16px;
 }
 
 #landing-page button {
   padding: 10px 20px;
-  font-size: 1em;
+  font-size: 16px;
   background-color: white;
   color: #5f0a87;
   border: none;
@@ -168,10 +198,8 @@ button.active {/*all,completed,active,etc buttons*/
 #landing-page button:hover {
   background-color: #f0f0f0;
 }
-#landing-page {
-  display: flex !important;
-  background: rgb(36, 41, 46) !important;
-}
+/***********************************************landing page**************************************************************/
+
 #game-instructions {
   width: 550px;
   margin: 10px auto 30px;
@@ -180,4 +208,90 @@ button.active {/*all,completed,active,etc buttons*/
   border-radius: 6px;
   font-size: 14px;
   text-align: left;
+}
+/**********************************************BIRD START*************************************************/
+/*more movement like (Elastic bounce) https://freefrontend.org/css-animation-examples*/
+/*https://codepen.io/Akasj/pen/QWKpyMm  maybe add blink? */
+
+.bird {
+  position: fixed;
+  top: 100px;
+  left: -80px;
+  width: 30px;
+  height: 30px;
+  background: #1e293b;
+  border-radius: 50%;
+  z-index: 9999;
+  animation: flyAcross 16s ease-in-out infinite;
+}
+.eye {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  top: 8px;
+  left: 18px;
+}
+.beak {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid #f8c705;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  top: 12px;
+  right: -6px;
+}
+.wing {
+  position: absolute;
+  width: 16px;
+  height: 9px;
+  background: #3b82f6;
+  border-radius: 50%;
+  top: 16px;
+  left: 5px;
+  transform-origin: right center; 
+  animation: flap 0.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+/**********************************************BIRD END*************************************************/
+
+/**********************************************BIRD ANIMATION*************************************************/
+
+
+@keyframes flap {
+  0%, 100% {
+    transform: rotate(25deg);
+  }
+  50% {
+    transform: rotate(-55deg);
+  }
+}
+@keyframes flyAcross {
+  0% {
+    left: -80px;
+    top: 100px;
+    transform: rotate(5deg);
+  }
+
+  25% {
+    top: 130px;
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    top: 140px;
+    transform: rotate(3deg);
+  }
+
+  75% {
+    top: 110px;
+    transform: rotate(-4deg);
+  }
+
+  100% {
+    left: 110vw;
+    top: 115px;
+    transform: rotate(5deg);
+  }
 }
