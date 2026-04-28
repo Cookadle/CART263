@@ -9,7 +9,7 @@ I love how the concept of Tamagotchi has come full circle from being digital toy
 I can see how the user is meant to interact, but over time it feels more like I’m just clicking buttons and waiting for something to happen rather than actively controlling the outcome. Maybe that’s intentional,it reflects the limited control we often have with Tamagotchi toys but it still creates a sense of temporary engagement rather than sustained interaction.
 I do love the design of the page. The Y2K elements and early 2000s gaming nostalgia are beautifully incorporated and also visually appealing. However, the experience feels more like layers waiting to be discovered rather than something the user is actively shaping. 
 
-## [Beat it up] (https://aydanmcgrail.github.io/cart263_FinalProject/)
+## [Beat it up](https://aydanmcgrail.github.io/cart263_FinalProject/)
 
 First, I love the game concept. It’s very original and interesting. However, I do find it a bit frustrating that the controls are explained while you are already in the game. It makes the start confusing and not very user-friendly. It took me around five tries to understand what was going on, and even then I had to check the README, which was quite minimal. I ended up spending more time figuring out the mechanics than actually playing.
 
